@@ -1,0 +1,48 @@
+.dialog{z-index:5}
+.dialog button:focus-visible{outline:var(--focus-width) solid var(--primary);outline-offset:var(--focus-width)}
+.opportunity-card{padding-bottom:var(--space-24)}
+.opportunity-main{min-width:0}
+.opportunity-main strong,.opportunity-main small{max-width:var(--full);overflow-wrap:anywhere}
+.opportunity-main .catalog-note{margin-top:0}
+.ticket-date{position:relative;min-width:var(--ticket-max-width)}
+.ticket-date::before,.ticket-date::after{position:absolute;right:calc(0px - var(--space-2));width:var(--space-12);height:var(--space-12);border-radius:var(--full);background:var(--background);content:""}
+.ticket-date::before{top:calc(0px - var(--space-2))}
+.ticket-date::after{bottom:calc(0px - var(--space-2))}
+.save-toggle{position:absolute;left:var(--space-12);bottom:var(--step);display:flex;align-items:center;justify-content:flex-start;gap:var(--step);min-width:var(--touch-target);min-height:var(--touch-target);padding:var(--step);border:0;border-radius:var(--radius);background:var(--surface);color:var(--primary);font:500 var(--small-size) var(--font-body);cursor:pointer}
+.save-toggle svg{width:var(--space-24);height:var(--space-24);flex:none}
+.save-toggle:not(.is-saved) span{display:none}
+.opportunity-card.is-saved-page .save-toggle{position:static;grid-column:1/-1;width:var(--full);height:auto;min-height:var(--touch-target);padding:0 var(--space-16)}
+.catalog-filters{scrollbar-width:none}
+.catalog-filters::-webkit-scrollbar{display:none}
+.catalog-filters button[aria-pressed=true]{background:var(--primary);color:var(--on-background);outline:0}
+.catalog-screen>h1{font-size:var(--display-size);line-height:1.25}
+.catalog-recommendation{margin:calc(0px - var(--step)) 0 var(--space-12);color:var(--on-surface-variant)}
+.catalog-count{display:flex;justify-content:space-between;align-items:center;gap:var(--space-12)}
+.catalog-sort{min-height:var(--button-height);padding:0 var(--space-16);border:0;border-radius:var(--radius);background:var(--surface);color:var(--primary);font:inherit}
+.filter-clear{min-height:var(--touch-target);padding:0 var(--space-12);border:0;border-radius:var(--radius);background:var(--surface);color:var(--primary);font:inherit}
+@media(max-width:359px){.opportunity-card{grid-template-columns:minmax(0,1fr) var(--space-40)}.ticket-date{width:var(--space-40);min-width:var(--space-40);padding:var(--step)}}
+/* unified buttons + type layer */
+html{-webkit-text-size-adjust:100%}body{line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--font-heading);letter-spacing:-.01em;text-wrap:balance}
+img,svg{max-width:100%}
+.actions button,.primary-link,.primary,.catalog-sort,.filter-clear,.catalog-filters button,.save-toggle,.dialog button,.link-button,.save-secondary{min-height:var(--touch);transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease),opacity var(--dur) var(--ease);-webkit-tap-highlight-color:transparent}
+.actions button,.catalog-sort,.filter-clear,.catalog-filters button,.dialog button{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);border:1px solid var(--outline);border-radius:var(--r-md);background:var(--surface);color:var(--primary);font:600 15px/1.2 var(--font-body);box-shadow:var(--shadow-1);cursor:pointer}
+.actions .primary,.primary-link,.primary,.dialog button:first-of-type{border-color:transparent;background:var(--secondary);color:var(--on-secondary);box-shadow:var(--shadow-1);font-weight:700}
+.primary-link,.primary{border-radius:var(--r-md);font-family:var(--font-body)}
+.link-button,.save-secondary,.save-toggle{border:0;background:transparent;box-shadow:none;color:var(--primary);cursor:pointer;border-radius:var(--r-sm)}
+.link-button{display:inline-flex;align-items:center;padding:0 var(--s-1);text-decoration:underline;text-underline-offset:3px}
+.catalog-filters button[aria-pressed=true]{background:var(--primary);color:var(--on-primary-btn);border-color:var(--primary)}
+.danger,.btn-danger{border-color:transparent!important;background:var(--btn-danger-bg)!important;color:var(--btn-danger)!important}
+@media(hover:hover){.actions button:hover,.catalog-sort:hover,.filter-clear:hover,.catalog-filters button:hover,.dialog button:hover{box-shadow:var(--shadow-2);border-color:var(--primary)}.actions .primary:hover,.primary-link:hover,.primary:hover,.dialog button:first-of-type:hover{filter:brightness(1.06);border-color:transparent}.link-button:hover,.save-toggle:hover,.save-secondary:hover{background:color-mix(in srgb,var(--primary) 10%,transparent)}}
+.actions button:active,.primary-link:active,.primary:active,.catalog-sort:active,.filter-clear:active,.catalog-filters button:active,.dialog button:active{transform:translateY(1px) scale(.99);box-shadow:none}
+button:disabled,.primary[aria-disabled=true],.actions button:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:var(--focus-width) solid var(--primary);outline-offset:var(--focus-width);border-radius:var(--r-sm)}
+.choice,.field,.dialog section{box-shadow:var(--shadow-1);transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.choice{border-width:1px;border-color:var(--outline)}.choice:has(input:checked){border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}
+.field:focus{border-color:var(--primary);outline:0;box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 25%,transparent)}
+.dialog section{box-shadow:var(--shadow-2);border-radius:var(--r-lg)}
+.catalog-filters{display:flex;gap:var(--s-2);overflow-x:auto;max-width:100%}.catalog-filters button{flex:none;white-space:nowrap}
+.ticket-date::before,.ticket-date::after{display:none}
+.catalog-sort,.filter-clear,.catalog-filters button,.link-button{max-width:100%}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:.01ms!important}}
+@media(max-width:359px){.actions{flex-wrap:wrap}.actions button{flex:1 1 auto}}

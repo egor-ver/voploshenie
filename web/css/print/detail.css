@@ -1,0 +1,94 @@
+/* print: детали (экраны «Детали», «Олимпиада», регистрация) */
+#app:has(>.detail-screen){padding-bottom:calc(var(--nav-height) + 16px)}
+.detail-screen{min-height:calc(100dvh - var(--nav-height) - 16px);display:flex;flex-direction:column;padding-top:44px}
+.detail-screen>*{flex:none}
+.detail-gap{flex:1 0 24px}
+.detail-toolbar{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.detail-back{padding:0;border:0;background:none;color:var(--p-primary);font:400 14px/1 var(--p-font-body);cursor:pointer;text-align:left;min-height:38px}
+.detail-save{display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;border:1px solid var(--p-primary);border-radius:0;background:transparent;color:var(--p-primary);font:500 13px/1 var(--p-font-body);cursor:pointer}
+.detail-save.is-saved{background:var(--p-primary);color:var(--p-on-primary)}
+.detail-screen h1{margin:0;font:800 36px/.98 var(--p-font-head);letter-spacing:-.04em;color:var(--p-text);overflow-wrap:anywhere}
+.detail-screen h1::after{content:none}
+.detail-kicker{margin:26px 0 0;font:700 11px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-secondary-text)}
+.detail-head{position:relative;margin-top:12px}
+.detail-head.has-stamp h1{padding-right:112px}
+.detail-stamp{position:absolute;right:2px;bottom:-30px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border:2px solid var(--p-warning);outline:1px solid var(--p-warning);outline-offset:3px;background:var(--p-bg);color:var(--p-warning);transform:rotate(-8deg)}
+.detail-stamp span{font:700 9px/1 var(--p-font-body);letter-spacing:.14em;text-transform:uppercase}
+.detail-stamp b{font:800 26px/1 var(--p-font-head);text-transform:uppercase;white-space:nowrap}
+.detail-organizer{margin:14px 0 0;font:400 14px/1 var(--p-font-body);color:var(--p-muted)}
+.detail-facts{margin-top:24px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--p-text);border-left:1px solid var(--p-outline)}
+.detail-cell{display:flex;flex-direction:column;gap:8px;min-width:0;padding:14px;border-right:1px solid var(--p-outline);border-bottom:1px solid var(--p-outline)}
+.detail-cell:last-child:nth-child(odd){grid-column:1/-1}
+.detail-cell span{font:700 10px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+.detail-cell b{font:700 15px/1.25 var(--p-font-body);color:var(--p-text);overflow-wrap:anywhere}
+.detail-facts>p{margin:10px 0 0;font:400 13px/1.3 var(--p-font-body);color:var(--p-muted)}
+.detail-screen h2{margin:24px 0 0;font:800 18px/1 var(--p-font-head);letter-spacing:0;color:var(--p-text)}
+.detail-direction{margin:10px 0 0;font:400 14px/21px var(--p-font-body);color:var(--p-muted);text-wrap:pretty}
+.detail-match{margin:12px 0 0;font:700 11px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-secondary-text)}
+/* этапы линейкой */
+.detail-stages{list-style:none;display:grid;grid-template-columns:repeat(var(--steps),1fr);margin:24px 0 0;padding:0;border-top:1px solid var(--p-text)}
+.detail-stage{display:flex;flex-direction:column;gap:6px;min-width:0;padding:12px 10px 0 0}
+.detail-stage i{display:block;width:10px;height:10px;margin-top:-17px;box-sizing:border-box;border:1.5px solid var(--p-text);background:var(--p-bg)}
+.detail-stage.is-first i{border:0;background:var(--p-primary)}
+.detail-stage b{font:800 18px/1 var(--p-font-head);text-transform:uppercase;color:var(--p-text);overflow-wrap:anywhere}
+.detail-stage.is-first b{color:var(--p-primary)}
+.detail-stage span{font:400 12px/16px var(--p-font-body);color:var(--p-muted)}
+.detail-facts+.detail-stages,.detail-stages+.detail-facts{margin-top:24px}
+/* олимпиада */
+.detail-photo{position:relative;margin:26px 30px 0;height:170px}
+.detail-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.detail-photo i{position:absolute;width:14px;height:14px;border:0 solid var(--p-text)}
+.detail-photo i:nth-of-type(1){left:-10px;top:-10px;border-left-width:1px;border-top-width:1px}
+.detail-photo i:nth-of-type(2){right:-10px;top:-10px;border-right-width:1px;border-top-width:1px}
+.detail-photo i:nth-of-type(3){left:-10px;bottom:-10px;border-left-width:1px;border-bottom-width:1px}
+.detail-photo i:nth-of-type(4){right:-10px;bottom:-10px;border-right-width:1px;border-bottom-width:1px}
+.detail-photo span{position:absolute;left:-14px;bottom:18px;padding:8px 10px;background:var(--p-accent);color:var(--p-on-accent);font:700 11px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;transform:rotate(-4deg)}
+.detail-olympiad h1{margin-top:30px;font-size:32px;line-height:1;letter-spacing:-.035em}
+.detail-sub{margin:12px 0 0;font:400 14px/1.3 var(--p-font-body);color:var(--p-muted)}
+.detail-olympiad .detail-stages{margin-top:22px}
+/* главная кнопка, одна на экран (без смещённого контура) */
+.detail-cta{position:relative;height:54px;flex:none}
+.detail-cta::before{content:none}
+.detail-primary{position:absolute;left:0;right:0;top:0;height:54px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--p-accent);color:var(--p-on-accent);font:700 16px/1 var(--p-font-body);text-decoration:none}
+/* приём закрыт */
+.detail-closed>.brand{display:flex;align-items:center;gap:6px;height:26px;margin-top:10px;font-size:14px;line-height:1}
+.detail-closed>.brand .brand-mark{width:26px;height:26px;margin:0}
+.detail-closed-art{position:relative;height:230px;margin:36px -20px 0;border-top:1px solid var(--p-primary-container);border-bottom:1px solid var(--p-primary-container);background-image:linear-gradient(var(--p-primary-container) 1px,transparent 1px),linear-gradient(90deg,var(--p-primary-container) 1px,transparent 1px);background-size:20px 20px}
+.detail-stairs{position:absolute;left:50%;top:0;width:390px;height:230px;transform:translateX(-50%)}
+.detail-closed-stamp{position:absolute;left:150px;top:72px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 16px;border:2.5px solid var(--p-error);outline:1px solid var(--p-error);outline-offset:4px;background:var(--p-bg);color:var(--p-error);transform:rotate(-9deg)}
+.detail-closed-stamp span{font:700 10px/1 var(--p-font-body);letter-spacing:.16em;text-transform:uppercase}
+.detail-closed-stamp b{font:800 30px/1 var(--p-font-head);letter-spacing:-.02em;text-transform:uppercase}
+.detail-closed h1{margin-top:30px}
+.detail-closed h1::after{content:".";color:var(--p-secondary-text)}
+.detail-closed-body{margin:14px 0 0;font:400 15px/22px var(--p-font-body);color:var(--p-muted);text-wrap:pretty}
+.detail-saved-row{display:flex;align-items:center;gap:10px;height:52px;margin-top:22px;padding:0 18px;border:1px solid var(--p-outline);border-radius:0;background:transparent;color:var(--p-text);font:400 15px/1 var(--p-font-body);text-align:left;cursor:pointer}
+.detail-saved-row.is-saved{border-color:var(--p-primary);background:var(--p-primary-container);color:var(--p-primary)}
+.detail-closed>.detail-back{margin-top:12px;align-self:flex-start}
+.detail-similar{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;border:0;border-radius:0 24px 0 0;background:var(--p-primary);color:var(--p-on-primary);font:700 15px/1 var(--p-font-body);cursor:pointer}
+/* состояния кнопок */
+.detail-primary{border-top-right-radius:var(--p-leaf);cursor:pointer;transition:filter .15s,transform .1s}
+.detail-primary:hover{filter:brightness(1.08)}
+.detail-primary:active{transform:translate(2px,2px)}
+.detail-primary:focus-visible,.detail-back:focus-visible,.detail-save:focus-visible,.detail-saved-row:focus-visible,.detail-similar:focus-visible{outline:2px solid var(--p-primary);outline-offset:3px}
+.detail-back:hover{text-decoration:underline;text-underline-offset:4px}
+.detail-save{transition:background-color .15s,color .15s}
+.detail-save:hover{background:var(--p-primary-container)}
+.detail-save.is-saved:hover{background:var(--p-primary);filter:brightness(1.1)}
+.detail-save:active,.detail-saved-row:active{transform:translateY(1px)}
+.detail-save:disabled,.detail-saved-row:disabled,.detail-similar:disabled{opacity:.5;cursor:default}
+.detail-saved-row:hover{border-color:var(--p-primary)}
+.detail-similar{border-radius:0;border-top-right-radius:var(--p-leaf)}
+.detail-similar:hover{filter:brightness(1.1)}
+.detail-similar:active{transform:translateY(1px)}
+
+/* polish: «приём закрыт» помещается над навигацией без прокрутки на 375x812 */
+.detail-closed-art{margin-top:26px}
+.detail-closed h1{margin-top:24px}
+.detail-closed-body{margin-top:12px}
+.detail-closed .detail-saved-row{margin-top:18px}
+.detail-closed .detail-gap{flex:1 0 16px}
+/* сохранить: выбранное состояние читается и без заливки */
+.detail-save{border-color:var(--p-primary)}
+.detail-save.is-saved{box-shadow:0 0 0 2px var(--p-primary-container)}
+.detail-saved-row{border-color:var(--p-outline)}

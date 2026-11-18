@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="catalog_group_ongoing">Идёт сейчас</string>
+    <string name="catalog_group_next_month">Ближайший месяц</string>
+    <string name="catalog_group_year">%1$d год</string>
+    <string name="catalog_group_month">%1$s %2$d</string>
+    <string name="catalog_group_rolling">Круглогодично</string>
+    <string name="catalog_group_unknown">Дата уточняется</string>
+    <string name="catalog_until">до %1$s</string>
+    <string-array name="catalog_months_full">
+        <item>Январь</item><item>Февраль</item><item>Март</item><item>Апрель</item><item>Май</item><item>Июнь</item>
+        <item>Июль</item><item>Август</item><item>Сентябрь</item><item>Октябрь</item><item>Ноябрь</item><item>Декабрь</item>
+    </string-array>
+</resources>

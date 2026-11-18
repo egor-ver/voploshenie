@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Хаб -->
+    <string name="games_title">Игры</string>
+    <string name="games_sub">Короткие практики на каждый день: пара минут, чтобы думать о карьере легче</string>
+    <string name="games_today">Сегодня</string>
+    <string name="games_done_of">%1$d из 3</string>
+    <string name="games_foot_done">На сегодня всё. Новые задания появятся завтра</string>
+    <string name="games_foot_new">Новые задания каждый день</string>
+    <string name="games_back">Игры</string>
+    <string name="games_banner_title">Игры дня</string>
+    <string name="games_banner_sub">Слово дня и Миф или правда</string>
+
+    <string name="games_wordle">Слово дня</string>
+    <string name="games_wordle_text">Угадайте термин из мира работы и учёбы за шесть попыток.</string>
+    <string name="games_myths">Миф или правда</string>
+    <string name="games_myths_text">%1$d утверждений о карьере. Узнайте, что правда, а что распространённый миф.</string>
+    <string name="games_resume">Резюме-детектор</string>
+    <string name="games_resume_text">Найдите слабые строки в резюме и узнайте, как их переписать.</string>
+
+    <string name="chip_new">Ждёт вас</string>
+    <string name="chip_wordle_live">Попытка %1$d из %2$d</string>
+    <string name="chip_wordle_won">Угадано за %1$d</string>
+    <string name="chip_wordle_lost">Слово раскрыто</string>
+    <string name="chip_myths_new">%1$d утверждений</string>
+    <string name="chip_myths_live">Вопрос %1$d из %2$d</string>
+    <string name="chip_myths_done">Верно %1$d из %2$d</string>
+    <string name="chip_resume_live">Отмечено %1$d</string>
+    <string name="chip_resume_done">Найдено %1$d из %2$d</string>
+
+    <!-- Общее -->
+    <string name="streak_start">Начните серию</string>
+    <plurals name="streak_days">
+        <item quantity="one">%1$d день подряд</item>
+        <item quantity="few">%1$d дня подряд</item>
+        <item quantity="many">%1$d дней подряд</item>
+        <item quantity="other">%1$d дня подряд</item>
+    </plurals>
+    <string name="how_title">Как играть</string>
+    <string name="games_to_games">К играм →</string>
+    <string name="games_open_opportunities">Открыть возможности</string>
+    <string name="games_loading">Загружаем игру…</string>
+
+    <string-array name="wordle_how">
+        <item>Угадайте слово за 6 попыток. Подсказка и тема вверху — это значение слова.</item>
+        <item>Вводите буквы и нажимайте «Ввод». Подойдёт любое слово нужной длины.</item>
+        <item>Зелёный — буква на своём месте. Фиолетовый — буква есть в слове, но стоит в другом месте. Серый — такой буквы нет.</item>
+        <item>Новое слово появляется каждый день.</item>
+    </string-array>
+    <string-array name="myths_how">
+        <item>Прочитайте утверждение и выберите «Правда» или «Миф».</item>
+        <item>Сразу после ответа покажем верный вариант и объяснение.</item>
+        <item>В день — пять карточек. Играйте каждый день, чтобы росла серия.</item>
+    </string-array>
+    <string-array name="resume_how">
+        <item>Прочитайте резюме или письмо: в нём спрятаны слабые строки.</item>
+        <item>Нажимайте на строки, которые мешают отклику: шаблонные фразы, общие слова, ошибки и лишние данные.</item>
+        <item>Нажмите «Проверить»: покажем, что вы нашли, что пропустили и как переписать строку. Лишние отметки снижают результат.</item>
+    </string-array>
+
+    <!-- Слово дня -->
+    <string name="wordle_clue">Подсказка · %1$s</string>
+    <plurals name="wordle_meta">
+        <item quantity="few">%1$d буквы · 6 попыток</item>
+        <item quantity="many">%1$d букв · 6 попыток</item>
+        <item quantity="other">%1$d буквы · 6 попыток</item>
+    </plurals>
+    <plurals name="wordle_need">
+        <item quantity="few">Нужно %1$d буквы</item>
+        <item quantity="many">Нужно %1$d букв</item>
+        <item quantity="other">Нужно %1$d буквы</item>
+    </plurals>
+    <string name="wordle_legend_correct">на своём месте</string>
+    <string name="wordle_legend_present">есть в слове</string>
+    <string name="wordle_legend_absent">нет в слове</string>
+    <string name="wordle_enter">Ввод</string>
+    <string name="wordle_backspace">Стереть</string>
+    <string name="wordle_won">Угадано за %1$d из %2$d</string>
+    <string name="wordle_lost">Не в этот раз</string>
+    <string name="wordle_stat_streak">серия</string>
+    <string name="wordle_stat_best">лучшая</string>
+    <string name="wordle_stat_played">игр</string>
+    <string name="wordle_share">Поделиться</string>
+    <string name="wordle_next_game">Дальше: «Миф или правда» →</string>
+
+    <!-- Миф или правда -->
+    <string name="myths_kicker">Утверждение %1$d из %2$d</string>
+    <string name="myths_true">Правда</string>
+    <string name="myths_false">Миф</string>
+    <string name="myths_verdict_right">Верно</string>
+    <string name="myths_verdict_wrong">Не угадали</string>
+    <string name="myths_is_true">Это правда</string>
+    <string name="myths_is_myth">Это миф</string>
+    <string name="myths_next">Дальше</string>
+    <string name="myths_show_results">Показать итоги</string>
+    <string name="myths_results">Итоги</string>
+    <string name="myths_verdict_high">Вы уверенно отличаете мифы от правды</string>
+    <string name="myths_verdict_mid">Часть утверждений оказалась неожиданной</string>
+    <string name="myths_verdict_low">Много неожиданного: разберите ответы ниже</string>
+    <string name="myths_play_wordle">Сыграть в «Слово дня»</string>
+
+    <!-- Резюме-детектор -->
+    <string name="resume_clue_kicker">Задача · %1$s</string>
+    <string name="resume_clue_text">Найдите строки, которые слабо работают на отклик</string>
+    <string name="resume_clue_meta">Слабых строк: %1$d · нажимайте, чтобы отметить</string>
+    <string name="resume_why">Почему слабо.</string>
+    <string name="resume_fix">Лучше: %1$s</string>
+    <string name="resume_marked">Отмечено: %1$d</string>
+    <string name="resume_check">Проверить</string>
+    <string name="resume_extra">Лишних отметок: %1$d</string>
+    <string name="resume_verdict_perfect">Идеально: все слабые строки найдены, лишнего нет</string>
+    <string name="resume_verdict_all">Все слабые строки найдены, но были лишние отметки</string>
+    <string name="resume_verdict_some">Часть слабых мест найдена. Остальные разобраны ниже</string>
+    <string name="resume_verdict_none">Слабые места спрятались. Разбор — ниже</string>
+</resources>

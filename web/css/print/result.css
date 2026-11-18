@@ -1,0 +1,108 @@
+/* print: result — «Печать и чертёж», кадры 02-result-light / 02-result-dark */
+#app:has(.result-top){--side:var(--p-side);color:var(--p-text);font-family:var(--p-font-body)}
+.result-lead>h2{display:none}
+#app:has(.result-top) h2{font:800 22px/26px var(--p-font-head);letter-spacing:-.04em;color:var(--p-text);margin:0 0 12px}
+#app:has(.result-top) h3{font:800 16px/22px var(--p-font-head);letter-spacing:-.03em;color:var(--p-text);margin:16px 0 4px}
+/* Шапка: знак + «воплощение» слева, статус справа (кадр 02) */
+#app:has(.result-top)>.brand{display:flex;align-items:center;gap:6px;height:26px;margin:10px 0 0;font:800 14px/1 var(--p-font-head);letter-spacing:0;text-transform:lowercase}
+#app:has(.result-top)>.brand .brand-mark{width:26px;height:26px}
+.result-status{margin-left:auto;font-size:11px;line-height:1;letter-spacing:.12em;color:var(--p-muted)}
+#app:has(.result-top)>.brand .brand-mark{margin:0}
+#app:has(.result-top)>h1{font:800 40px/.95 var(--p-font-head);letter-spacing:-.045em;margin:22px 0 0}
+.result-subtitle{margin:12px 0 0;color:var(--p-muted);font:15px/1.3 var(--p-font-body)}
+/* Героическая карточка: линии сверху и снизу, с отступом слева и вылетом вправо; цветок-вертушка справа */
+.result-lead{position:relative;margin:24px calc(var(--p-side) * -1) 0 0;overflow:hidden}
+.result-lead .result-top{margin:0}
+.result-top{list-style:none;margin:0;padding:0}
+.result-card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:8px 16px;min-width:0;overflow-wrap:anywhere;padding:12px 0;border-top:1px solid var(--p-divider);background:transparent}
+.result-card-heading{grid-column:1/3;display:flex;flex-direction:column;gap:10px;min-width:0}
+.result-card-heading>strong{font:700 15px/1.1 var(--p-font-body);color:var(--p-text)}
+.result-card>.result-level{grid-column:1/3;order:2;margin:0;color:var(--p-muted);font:13px/1.2 var(--p-font-body)}
+.result-card>.result-equal{grid-column:1/3;order:2;margin:0;color:var(--p-secondary-text);font:700 13px/18px var(--p-font-body)}
+.result-card>.result-note{grid-column:1/3;order:2}
+.result-card>.result-percent{order:3;display:contents}
+.result-card>.result-roles{grid-column:1/3;order:4}
+.result-lead .result-card{position:relative;padding:20px;border-top:1px solid var(--p-text);border-bottom:1px solid var(--p-text);background:var(--p-surface)}
+.result-lead .result-card-heading,.result-lead .result-card>*{grid-column:1/3}
+.result-lead .result-card-heading{gap:10px}
+.result-lead .result-card-heading>strong{font:800 24px/1.05 var(--p-font-head);letter-spacing:-.02em;color:var(--p-text);overflow-wrap:normal;hyphens:auto}
+.result-lead .result-kicker{font:700 11px/1 var(--p-font-body);letter-spacing:.12em;color:var(--p-secondary-text)}
+.result-lead .result-card>.result-percent{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;align-items:end;grid-column:1/3}
+.result-lead .result-card{padding-right:20px}
+.result-lead .result-card>*:not(.result-flower){position:relative;z-index:1;max-width:calc(100% - 104px)}
+.result-lead .result-card>.result-percent,.result-lead .result-card>.result-roles,.result-lead .result-card>.result-note{max-width:none}
+/* Вертушка из пяти лепестков */
+.result-flower{position:absolute;right:-12px;top:6px;width:130px;height:130px;transform:scale(.85);transform-origin:100% 0;z-index:0;pointer-events:none}
+.result-flower i{position:absolute;left:51px;top:13px;width:28px;height:52px;background:var(--p-primary);border-radius:100% 0;transform-origin:50% 100%}
+.result-flower i:nth-child(1){background:var(--p-secondary-text)}
+.result-flower i:nth-child(2){transform:rotate(72deg)}
+.result-flower i:nth-child(3){transform:rotate(144deg)}
+.result-flower i:nth-child(4){background:var(--p-secondary-text);transform:rotate(216deg)}
+.result-flower i:nth-child(5){transform:rotate(288deg)}
+/* Растровая шкала процента: точки сетки 7 px, цвет растёт от фиолетового к бирюзовому */
+.result-meter{position:relative;height:21px;min-width:0}
+.result-meter i{position:absolute;top:0;bottom:0;left:0}
+.result-meter i:nth-child(1){right:0;background-image:radial-gradient(circle,var(--p-outline) 1px,transparent 1.4px);background-size:7px 7px}
+.result-meter i:nth-child(2){width:var(--w);background-image:radial-gradient(circle,var(--p-primary) 1.7px,transparent 2.1px);background-size:7px 7px;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.3),#000);mask-image:linear-gradient(90deg,rgba(0,0,0,.3),#000)}
+.result-meter i:nth-child(3){width:var(--w);background-image:radial-gradient(circle,var(--p-secondary-text) 2.6px,transparent 3px);background-size:7px 7px;-webkit-mask-image:linear-gradient(90deg,transparent 57%,#000);mask-image:linear-gradient(90deg,transparent 57%,#000)}
+.result-percent>b{font:800 40px/.8 var(--p-font-head);letter-spacing:-.04em;color:var(--p-primary);white-space:nowrap}
+.result-percent>b small{font:400 14px var(--p-font-body);letter-spacing:0;color:var(--p-muted)}
+.result-note{margin:0;padding:8px 0 8px 12px;border:0;border-left:2px solid var(--p-warning);border-radius:0;background:transparent;color:var(--p-text);font:14px/20px var(--p-font-body)}
+/* Роли — строки с линиями */
+.result-roles{display:block}
+.result-roles ul{list-style:none;margin:6px 0 0;padding:0}
+.result-roles li{padding:10px 0;border-top:1px solid var(--p-divider);font:700 15px/1.2 var(--p-font-body);color:var(--p-text)}
+.result-roles .p-kicker{color:var(--p-muted)}
+/* «Почему это может подойти» и остальные направления */
+.result-why{margin:24px 0 0}
+#app:has(.result-top) .result-why>h2{margin:0;font:800 18px/1 var(--p-font-head);letter-spacing:0}
+#app:has(.result-top) .result-why>p{margin:10px 0 0;color:var(--p-muted);font:14px/21px var(--p-font-body)}
+.result-rest{margin:18px 0 0}
+.result-rest .result-card:last-child{border-bottom:1px solid var(--p-divider)}
+.result-more>.result-chart{margin-top:32px}
+/* Диаграмма всех сфер */
+.result-chart{display:grid;gap:12px;margin:24px 0 0;overflow:visible}
+.result-chart>h2{font-size:18px}
+.result-chart-item{grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr) auto;gap:10px;white-space:normal;font:14px/18px var(--p-font-body);color:var(--p-text)}
+.result-chart-item>span:first-child{overflow:visible;text-overflow:clip}
+.result-chart-item>strong{font:800 14px var(--p-font-head);color:var(--p-primary)}
+.result-chart-track{display:block;height:6px;background:var(--p-divider);border-radius:0}
+.result-chart-track span{display:block;height:100%;background:var(--p-primary);border-radius:0}
+/* Текстовые блоки */
+.result-block{margin:24px 0 0;padding:20px 0 0;border:0;border-top:1px solid var(--p-divider);border-radius:0;background:transparent}
+.result-block p,.result-subtitle{overflow-wrap:anywhere}
+.result-block p{margin:0 0 8px;color:var(--p-muted);font:15px/22px var(--p-font-body)}
+.result-block strong{color:var(--p-text)}
+.result-answer{color:var(--p-text)!important}
+.riasec-bar span{background:var(--p-primary);border-radius:0;width:100%}
+.riasec-type span{color:var(--p-muted);font-size:12px}
+.riasec-descriptions p strong{display:block}
+/* Единственная главная кнопка: смещённый контур */
+#app:has(.result-top) .actions.p-cta{display:flex;margin:24px 0 0;padding:0;gap:0}
+#app:has(.result-top) .actions.p-cta .p-btn{flex:1;width:auto;height:54px;min-height:54px;margin:0;justify-content:space-between;padding:0 20px;border:1px solid var(--p-accent);border-radius:0;background:var(--p-accent);color:var(--p-on-accent);font:700 16px/1 var(--p-font-body)}
+/* Диаграмма типов RIASEC и служебные блоки (перенесено из css/result.css) */
+.result-chart-item{display:grid;align-items:center}
+.result-answer{max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+.riasec-chart{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;gap:8px;margin-top:16px}
+.riasec-type{display:grid;justify-items:center;gap:8px;min-width:0;text-align:center}
+.riasec-type strong{font-size:13px}
+.riasec-bar{display:flex;align-items:flex-end;justify-content:center;width:100%;height:80px;background:transparent}
+.riasec-bar span{display:block;max-height:100%}
+.riasec-descriptions{display:grid;gap:12px;margin-top:16px}
+.riasec-descriptions p{margin:0;line-height:1.5}
+.riasec-descriptions strong{display:block;margin-bottom:4px}
+.riasec-descriptions br{display:none}
+#app:has(.result-top) .actions.p-cta{margin-right:0}
+/* Единый стиль главной кнопки: срезанный угол, без теней, состояния */
+#app:has(.result-top) .actions.p-cta .p-btn{border-radius:0 24px 0 0;box-shadow:none;transition:background-color .15s,transform .1s}
+@media(hover:hover){#app:has(.result-top) .actions.p-cta .p-btn:hover{background:var(--p-secondary-text);border-color:var(--p-secondary-text);color:var(--p-bg);box-shadow:none}}
+#app:has(.result-top) .actions.p-cta .p-btn:active{transform:translateY(1px);box-shadow:none}
+#app:has(.result-top) .actions.p-cta .p-btn:focus-visible{outline:2px solid var(--p-text);outline-offset:3px}
+#app:has(.result-top) .actions.p-cta .p-btn:disabled{opacity:.45;cursor:not-allowed}
+.result-card-heading>strong{overflow-wrap:break-word}
+/* Диаграмма сфер: единые колонки у всех строк */
+.result-chart-item{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) 40px;gap:12px}
+.result-chart-item>strong{text-align:right;font-variant-numeric:tabular-nums}
+.result-chart-track{height:8px}
+.riasec-type span{font-variant-numeric:tabular-nums}
+#app:has(.result-top) .actions.p-cta{margin-bottom:28px}

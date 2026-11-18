@@ -1,0 +1,53 @@
+/* print: deadlines (кадр 14) */
+.screen-deadlines{display:flex;flex-direction:column;min-height:calc(100dvh - var(--nav-height));padding:var(--space-20) 0 var(--space-16);background:var(--p-bg);color:var(--p-text)}
+.screen-deadlines>.brand{flex:none;display:flex;align-items:center;gap:6px;height:26px;margin:0 0 20px;font:800 14px/1 var(--p-font-head);text-transform:lowercase;color:var(--p-text)}
+.screen-deadlines>.brand .brand-mark{width:26px;height:26px;margin:0}
+.screen-deadlines>h1.p-title{margin:0;font:800 40px/.95 var(--p-font-head);letter-spacing:-.045em}
+.deadline-sub{margin:12px 0 0;font:400 15px/1 var(--p-font-body);color:var(--p-muted)}
+.deadline-content{display:flex;flex:1;flex-direction:column;margin:0;padding:0}
+.deadline-group{margin:0 calc(var(--p-side) * -1)}
+.deadline-group.is-first{margin-top:20px}
+/* месяц: контурные буквы 104 px, обрезаются по краю экрана */
+.deadline-month{position:relative;height:92px;margin:0;padding:0 0 0 14px;overflow:hidden;white-space:nowrap;font:800 104px/92px var(--p-font-head);letter-spacing:-.05em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.2px var(--p-outline)}
+.deadline-year{position:absolute;right:var(--p-side);bottom:6px;padding:3px 0 3px 6px;background:var(--p-bg);font:700 11px/1 var(--p-font-body);letter-spacing:.12em;-webkit-text-stroke:0;color:var(--p-muted)}
+/* следующие месяцы: подпись «НОЯБРЬ · …» из макета, ниже тот же список */
+.deadline-group:not(.is-first) .deadline-month{height:auto;margin:18px 0 12px;padding:0 var(--p-side);overflow:visible;font:700 11px/1 var(--p-font-body);letter-spacing:.12em;-webkit-text-stroke:0;color:var(--p-muted)}
+.deadline-group:not(.is-first) .deadline-year{position:static;display:inline;padding:0;background:none;font:inherit;letter-spacing:inherit}
+.deadline-list{position:relative;display:flex;flex-direction:column;margin:0 var(--p-side);border-top:1px solid var(--p-text)}
+.deadline-list::before{content:"";position:absolute;left:58px;top:0;bottom:0;width:1px;background:var(--p-outline);pointer-events:none}
+.deadline-entry{display:grid;grid-template-columns:58px 1fr auto;align-items:center;width:100%;min-height:0;margin:0;padding:16px 0;border:0;border-bottom:1px solid var(--p-outline);border-radius:0;background:transparent;color:var(--p-text);text-align:left;cursor:pointer;font:inherit}
+.deadline-entry.is-nearest{background:var(--p-surface)}
+.deadline-stub{display:flex;flex-direction:column;gap:3px;padding-left:10px}
+.deadline-stub b{font:800 30px/1 var(--p-font-head);letter-spacing:normal;color:var(--p-text)}
+.deadline-stub span{font:700 10px/1 var(--p-font-body);letter-spacing:.12em;color:var(--p-muted)}
+.is-nearest .deadline-stub b,.is-nearest .deadline-stub span,.deadline-kicker{color:var(--p-warning)}
+.deadline-text{display:flex;flex-direction:column;gap:7px;min-width:0;padding:0 0 0 16px}
+.deadline-kicker{font:700 10px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase}
+.deadline-entry strong{font:700 15px/1.2 var(--p-font-body);letter-spacing:normal;color:var(--p-text);overflow-wrap:anywhere}
+.deadline-meta{font:400 13px/1 var(--p-font-body);color:var(--p-muted)}
+.deadline-chip{margin-left:8px;padding:4px 6px;border:1px solid var(--p-primary);font:700 10px/1 var(--p-font-body);color:var(--p-primary);white-space:nowrap}
+.deadline-arrow{margin-left:8px;color:var(--p-muted);font-size:16px}
+.deadline-entry:focus-visible{outline:2px solid var(--p-primary);outline-offset:-2px}
+.deadline-empty{display:flex;flex:none;flex-direction:column;align-items:flex-start;justify-content:center;gap:16px;margin-top:28px;padding:40px 20px;border:1px dashed var(--p-outline);background-color:var(--p-bg);text-align:left}
+.deadline-empty p{margin:0;font:800 22px/1.1 var(--p-font-head);letter-spacing:-.03em;color:var(--p-text)}
+.deadline-cta{padding:20px 0 16px}
+.deadline-cta .p-btn{width:100%}
+/* polish */
+.deadline-entry{padding-right:12px;transition:background-color .15s}
+.deadline-entry:hover{background:var(--p-surface)}
+.deadline-entry:active{background:var(--p-primary-container)}
+.deadline-entry.is-nearest{box-shadow:inset 3px 0 0 var(--p-warning)}
+.deadline-meta{line-height:1.35}
+.deadline-chip,.deadline-arrow{flex:none;margin-left:8px}
+.deadline-group:last-child .deadline-list{margin-bottom:8px}
+.deadline-content{padding-bottom:8px}
+.deadline-year{z-index:1}
+.deadline-empty .p-btn{width:100%;border-radius:0;border-top-left-radius:var(--p-leaf)}
+.deadline-empty .p-btn:hover{filter:brightness(1.08)}
+.deadline-empty .p-btn:active{transform:translateY(1px)}
+.deadline-cta .p-btn:hover{filter:brightness(1.06)}
+.deadline-cta .p-btn:active{transform:translateY(1px)}
+/* кнопка «Посмотреть стажировку»: во всю ширину, как главные кнопки других экранов */
+.deadline-cta{padding:24px 0 16px}
+.deadline-cta .p-cta{display:flex}
+.deadline-cta .p-btn{flex:1;justify-content:space-between;height:54px;border-radius:0;border-top-left-radius:var(--p-leaf);text-align:left}

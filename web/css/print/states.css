@@ -1,0 +1,70 @@
+/* print: состояния — «Печать и чертёж». Макеты 06-no-results, 08-loading, 09-error. */
+:root{--st-fill:var(--p-accent)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--st-fill:#5EEAD4}}
+:root[data-theme="dark"]{--st-fill:#5EEAD4}
+
+.state-screen{padding:0 0 20px;background:var(--p-bg);color:var(--p-text)}
+.state-screen>.brand{height:26px;margin:10px 0 0;font:800 14px/1 var(--p-font-head);letter-spacing:-.02em;color:var(--p-text)}
+.state-screen h1{margin:20px 0 0;font:800 40px/.95 var(--p-font-head);letter-spacing:-.045em}
+.state-screen .screen-subtitle,.state-screen .state-body{margin:12px 0 0;font:400 15px/22px var(--p-font-body);color:var(--p-muted);text-wrap:pretty}
+.state-screen .screen-subtitle{line-height:1}
+.state-actions{display:flex;flex-direction:column;gap:14px;margin-top:auto;padding-top:24px}
+.state-screen .primary{display:flex;align-items:center;justify-content:space-between;width:100%;height:56px;margin:0;padding:0 20px;border:0;border-radius:0 24px 0 0;background:var(--p-primary);color:var(--p-on-primary);font:700 15px/1 var(--p-font-body);letter-spacing:0}
+.state-screen .p-link{align-self:flex-start;min-height:0;padding:0 0 3px;border-bottom:1px solid var(--p-primary);font:700 14px/1 var(--p-font-body);text-decoration:none;color:var(--p-primary)}
+
+/* 09 Ошибка: красный «лист» со смещённым контуром */
+.state-grid--error{position:relative;width:136px;height:150px;margin:100px 0 0;background:var(--p-error);display:flex;align-items:center;justify-content:center;overflow:visible}
+.state-grid--error::before{content:"";position:absolute;left:14px;top:-20px;width:136px;height:150px;border:1.5px solid var(--p-text);pointer-events:none}
+.state-screen .state-grid--error b{position:static;transform:none;font:800 120px/1 var(--p-font-head);letter-spacing:-.05em;color:var(--p-bg)}
+.state-screen h1:has(+.state-body){margin-top:40px}
+.state-grid--error+h1{font-size:34px;line-height:1;letter-spacing:-.035em;margin-top:40px}
+.state-grid--error~.state-body{margin-top:14px}
+
+/* 08 Загрузка: растровая шкала и билеты-заглушки */
+
+.state-screen--loading .brand+h1{margin-top:20px}
+.p-loading-dots{position:relative;height:21px;margin:22px 0 0;background:none}
+.p-loading-dots i{position:absolute;inset:0;background-image:radial-gradient(circle,var(--p-outline) 1px,transparent 1.4px);background-size:7px 7px}
+.p-loading-dots i+i{right:auto;width:46%;background-image:radial-gradient(circle,var(--p-primary) 1.7px,transparent 2.1px);-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.2),#000);mask-image:linear-gradient(90deg,rgba(0,0,0,.2),#000)}
+.skeleton-list{display:flex;flex-direction:column;gap:12px;margin:26px 0 0}
+.skeleton-card{position:relative;display:grid;grid-template-columns:1fr 92px;min-height:0;height:148px;padding:0;border-radius:0;background:var(--p-surface);--n:radial-gradient(circle 9px at calc(100% - 92px) 0,transparent 9px,#000 9.5px) top/100% 51% no-repeat,radial-gradient(circle 9px at calc(100% - 92px) 100%,transparent 9px,#000 9.5px) bottom/100% 51% no-repeat;-webkit-mask:var(--n);mask:var(--n)}
+.skeleton-card::before,.skeleton-card::after{content:none}
+.skeleton-card .skeleton-main{display:flex;flex-direction:column;gap:12px;padding:20px}
+.skeleton-card .skeleton-main i{display:block;height:20px;margin:0;background:var(--p-divider)}
+.skeleton-card .skeleton-main i:first-child{height:10px;background:var(--p-primary-container)}
+.skeleton-card .skeleton-main i.skeleton-meta{height:10px;margin-top:auto}
+.skeleton-card .skeleton-stub{display:flex;flex-direction:column;gap:8px;padding:20px 16px;border-left:1.5px dashed var(--p-outline)}
+.skeleton-card .skeleton-stub i{display:block;width:44px;height:36px;margin:0;background:var(--p-primary-container)}
+.skeleton-card .skeleton-stub i+i{width:28px;height:10px;background:var(--p-divider)}
+
+/* 06 Ничего не найдено: чертёжная сетка с двумя нулями, сброс — контурная кнопка */
+.catalog-screen .state-grid{position:relative;width:auto;height:250px;margin:28px calc(-1*var(--p-side)) 0;overflow:hidden;background-image:linear-gradient(var(--p-divider) 1px,transparent 1px),linear-gradient(90deg,var(--p-divider) 1px,transparent 1px);background-size:24px 24px;background-position:20px 0}
+.catalog-screen .state-grid b{position:absolute;font:800 300px/1 var(--p-font-head);letter-spacing:0;transform:none}
+.catalog-screen .state-grid b:nth-of-type(1){left:84px;top:-20px;color:var(--st-fill);mix-blend-mode:multiply;z-index:1}
+.catalog-screen .state-grid b:nth-of-type(2){left:96px;top:-34px;color:transparent;-webkit-text-stroke:1.5px var(--p-text)}
+.catalog-screen .state-grid em{position:absolute;right:20px;bottom:16px;font:700 11px/1 var(--p-font-body);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+.catalog-screen h2{margin:24px 0 0;font:800 28px/1 var(--p-font-head);letter-spacing:-.03em}
+.catalog-screen .state-body{margin:12px 0 0;font:400 15px/22px var(--p-font-body);color:var(--p-muted)}
+.catalog-screen .state-actions{margin-top:24px;padding-top:0}
+.catalog-screen .state-actions .primary{display:flex;align-items:center;justify-content:space-between;width:100%;height:52px;padding:0 20px;border:1px solid var(--p-text);border-radius:0;background:transparent;color:var(--p-text);font:700 15px/1 var(--p-font-body)}
+.catalog-screen .state-actions .primary .arrow{display:none}
+.catalog-screen .state-actions .primary::after{content:"\21BA"}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .catalog-screen .state-grid b:nth-of-type(1){mix-blend-mode:normal}:root:not([data-theme="light"]) .catalog-screen .state-grid b:nth-of-type(2){z-index:2}}
+:root[data-theme="dark"] .catalog-screen .state-grid b:nth-of-type(1){mix-blend-mode:normal}
+:root[data-theme="dark"] .catalog-screen .state-grid b:nth-of-type(2){z-index:2}
+
+/* Шапка состояний: знак и слово в строку, как на остальных экранах */
+.state-screen>.brand{display:flex;align-items:center;gap:6px;text-transform:lowercase}
+.state-screen>.brand .brand-mark{width:26px;height:26px;margin:0}
+/* Мягкая пульсация заглушек */
+@keyframes p-skeleton-pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.state-screen--loading .skeleton-card .skeleton-main i,.state-screen--loading .skeleton-card .skeleton-stub i{animation:p-skeleton-pulse 1.4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.state-screen--loading .skeleton-card .skeleton-main i,.state-screen--loading .skeleton-card .skeleton-stub i{animation:none}}
+/* Кнопки состояний: состояния hover/active/focus/disabled, без теней */
+.state-screen .primary{box-shadow:none;cursor:pointer;transition:background-color .15s,transform .1s}
+@media(hover:hover){.state-screen .primary:hover{background:var(--p-text);color:var(--p-bg);box-shadow:none}}
+.state-screen .primary:active{transform:translateY(1px);box-shadow:none}
+.state-screen .primary:focus-visible,.state-screen .p-link:focus-visible{outline:2px solid var(--p-text);outline-offset:3px}
+.state-screen .primary:disabled{opacity:.45;cursor:not-allowed}
+.state-screen .p-link{cursor:pointer;background:none;border-top:0;border-left:0;border-right:0}
+.state-screen .p-link{border-radius:0;padding-left:0;padding-right:0}

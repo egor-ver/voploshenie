@@ -1,0 +1,201 @@
+/* Полировка и движение поверх «Печати и чертежа». Палитра прежняя; меняются только поведение и детали.
+   Правила движения — по taste-skill (references/motion.md): transform/opacity, без отскока, hover 150 мс, нажатие 90 мс,
+   вход экрана ≈ 0,4 с один раз на смену экрана (класс #app.is-entering ставит js/app.js), ничего не анимируется на прокрутке. */
+:root{--m-ease:cubic-bezier(.2,.8,.2,1);--m-enter:cubic-bezier(.22,1,.36,1);--m-in:150ms;--m-out:120ms;--m-press:90ms;--leaf:24px}
+
+@keyframes m-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes m-fade{from{opacity:0}to{opacity:1}}
+@keyframes m-pop{0%{transform:scale(.9)}100%{transform:scale(1)}}
+@keyframes m-fill{from{background-color:transparent}}
+@keyframes m-bar{from{transform:translateX(-50%) scaleX(0)}to{transform:translateX(-50%) scaleX(1)}}
+@keyframes m-dialog{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes track-grow{from{clip-path:inset(0 var(--from,100%) 0 0)}to{clip-path:inset(0)}}
+@keyframes dots-slide{from{width:var(--from,0%)}}
+@keyframes head-pulse{0%{transform:scale(.5)}45%{transform:scale(1.45)}100%{transform:scale(1)}}
+@keyframes dots-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+
+/* ── Вход экрана: блоки поднимаются по очереди (не больше ~0,4 с на весь экран) ── */
+#app.is-entering>section:not(.quiz-screen)>:not(nav):not(.dialog),
+#app.is-entering .quiz-screen .quiz-scroll>*{animation:m-rise .42s var(--m-enter) both}
+#app.is-entering>section>:nth-child(2),#app.is-entering .quiz-scroll>:nth-child(2){animation-delay:40ms}
+#app.is-entering>section>:nth-child(3),#app.is-entering .quiz-scroll>:nth-child(3){animation-delay:80ms}
+#app.is-entering>section>:nth-child(4),#app.is-entering .quiz-scroll>:nth-child(4){animation-delay:120ms}
+#app.is-entering>section>:nth-child(5),#app.is-entering .quiz-scroll>:nth-child(5){animation-delay:160ms}
+#app.is-entering>section>:nth-child(n+6),#app.is-entering .quiz-scroll>:nth-child(n+6){animation-delay:200ms}
+/* Номер вопроса и линейка в тесте стоят на месте — меняется только содержимое */
+#app.is-entering .quiz-screen .quiz-scroll>.progress-meta,#app.is-entering .quiz-screen .quiz-scroll>.track{animation:none}
+#app.is-entering .quiz-screen .progress-meta>strong{animation:m-rise .36s var(--m-enter) both}
+#app.is-entering .quiz-screen .track span{animation:track-grow .55s var(--m-enter) both}
+/* Полоска активной вкладки вырастает из центра */
+#app.is-entering nav.bottom-nav a[aria-current="page"]::before{animation:m-bar .32s var(--m-enter) both}
+nav.bottom-nav a{transition:color var(--m-in) var(--m-ease)}
+nav.bottom-nav a .nav-icon{transition:transform var(--m-press) var(--m-ease)}
+nav.bottom-nav a:active .nav-icon{transform:scale(.88)}
+
+/* ── Кнопки: шаг вверх на hover, утапливание на нажатии ── */
+.p-btn,.quiz-screen .actions button,.session-intro .p-cta .primary,.saved-empty-action,.intro-back,.dialog-btn,.detail-back,.detail-similar,.link-button,.state-actions button{transition:transform var(--m-out) var(--m-ease),background-color var(--m-in) var(--m-ease),border-color var(--m-in) var(--m-ease),color var(--m-in) var(--m-ease),filter var(--m-in) var(--m-ease)}
+@media (hover:hover) and (pointer:fine){
+  .p-btn:not(:disabled):hover,.quiz-screen .actions button:not(:disabled):hover,.session-intro .p-cta .primary:not(:disabled):hover,.saved-empty-action:hover,.dialog-btn:hover{transform:translateY(-1px)}
+  .quiz-screen .actions .primary:not(:disabled):hover svg,.session-intro .p-cta .primary:not(:disabled):hover::after,.deadline-empty .p-btn:hover svg{transform:translateX(3px)}
+  .intro-back:hover svg{transform:translateX(-3px)}
+}
+.quiz-screen .actions svg,.deadline-empty .p-btn svg,.intro-back svg{transition:transform var(--m-in) var(--m-ease)}
+.session-intro .p-cta .primary::after{display:inline-block;transition:transform var(--m-in) var(--m-ease)}
+.p-btn:not(:disabled):active,.quiz-screen .actions button:not(:disabled):active,.session-intro .p-cta .primary:not(:disabled):active,.saved-empty-action:active,.intro-back:active,.dialog-btn:active{transform:translateY(1px) scale(.985);transition-duration:var(--m-press)}
+
+/* ── Карточки со ссылкой: подъём на 2 px ── */
+.opportunity-item,.saved-ticket,.p-ticket{transition:transform 180ms var(--m-ease)}
+@media (hover:hover) and (pointer:fine){.opportunity-item:hover,.saved-ticket:hover,.p-ticket:hover{transform:translateY(-2px)}}
+.deadline-entry{transition:background-color var(--m-in) var(--m-ease)}
+@media (hover:hover) and (pointer:fine){.deadline-entry:hover{background:color-mix(in srgb,var(--p-primary-container) 45%,transparent)}}
+
+/* ── Варианты ответа ── */
+.quiz-screen .choice{transition:background-color var(--m-in) var(--m-ease),border-color var(--m-in) var(--m-ease),color var(--m-in) var(--m-ease),transform var(--m-out) var(--m-ease)}
+.quiz-screen .choice-row:active,.quiz-screen .has-pick3>.choice:active{transform:scale(.99);transition-duration:var(--m-press)}
+.quiz-screen .choice-row input,.quiz-screen .has-pick3 input{transition:background-color var(--m-in) var(--m-ease),border-color var(--m-in) var(--m-ease)}
+
+/* Выбранный вариант: без смены веса шрифта (иначе строки перескакивают), плавная обводка букв */
+.quiz-screen .choice-row,.quiz-screen .has-pick3>.choice,.quiz-screen .rank-value>.choice{-webkit-text-stroke:0 currentColor;transition:background-color .24s var(--m-ease),outline-color .24s var(--m-ease),border-color .24s var(--m-ease),color .24s var(--m-ease),-webkit-text-stroke-width .24s var(--m-ease),transform var(--m-out) var(--m-ease)}
+.quiz-screen .choice-row:has(input:checked),.quiz-screen .has-pick3>.choice:has(input:checked),.quiz-screen .rank-value>.choice:has(input:checked){font-weight:400;-webkit-text-stroke-width:.55px}
+.quiz-screen .choice-row,.quiz-screen .has-pick3>.choice{outline:1.5px solid transparent;outline-offset:-1.5px}
+.quiz-screen .choice-row:has(input:checked),.quiz-screen .has-pick3>.choice:has(input:checked){outline-color:var(--p-primary)}
+/* ── Шкала 1–5 и 1–10: отдельные плитки вместо таблицы ── */
+.quiz-screen .scale-choices{gap:8px;margin-top:40px;border:0}
+.quiz-screen .has-scale>fieldset .scale-choices{margin-top:12px}
+.quiz-screen .scale-choices .choice{height:64px;min-height:64px;border:1px solid var(--p-outline);background:var(--p-surface);color:var(--p-text);font:800 26px/1 var(--p-font-head);letter-spacing:-.02em}
+.quiz-screen .scale-choices--wide .choice{height:56px;min-height:56px;font-size:22px}
+.quiz-screen .scale-choices .choice:has(input:checked){border-color:var(--p-primary);background:var(--p-primary);border-radius:0 18px 0 0;box-shadow:0 10px 20px -12px color-mix(in srgb,var(--p-primary) 80%,transparent)}
+.quiz-screen .scale-choices .choice{transition:background-color .24s var(--m-ease),border-color .24s var(--m-ease),color .24s var(--m-ease),border-radius .24s var(--m-ease),box-shadow .3s var(--m-ease),transform var(--m-out) var(--m-ease)}
+.quiz-screen .scale-choices .choice>span{transition:color .24s var(--m-ease)}
+.quiz-screen .scale-choices .choice:not(:has(input:checked)):active{transform:scale(.95);transition-duration:var(--m-press)}
+@media (hover:hover) and (pointer:fine){.quiz-screen .scale-choices .choice:not(:has(input:checked)):hover{border-color:var(--p-primary);background:var(--p-primary-container);color:var(--p-primary)}}
+.quiz-screen .scale-dots{height:7px;margin-top:18px;background-position:0 0;background-repeat:repeat-x}
+.quiz-screen .scale-dots i{background-repeat:repeat-x}
+.quiz-screen .scale-dots i{will-change:width}
+.quiz-screen .scale-dots.is-moving i{animation:dots-slide .75s var(--m-enter) both}
+/* «головка» на конце шкалы: точка с ореолом, слегка пульсирует при выборе */
+.quiz-screen .scale-dots i::after{content:"";position:absolute;right:-4px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--p-primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--p-primary) 22%,transparent)}
+.quiz-screen .scale-dots i[style*="width:0%"]::after,.quiz-screen .scale-dots i[style*="width: 0%"]::after{display:none}
+.quiz-screen .scale-dots.is-moving i::after{animation:head-pulse .75s var(--m-enter) both}
+.quiz-screen .scale-labels{margin-top:10px;font-size:12px;letter-spacing:.02em}
+
+/* Ценности: клетки ранга — тот же язык плиток */
+.quiz-screen .rank-value .choice{border-color:var(--p-outline);background:var(--p-surface)}
+.quiz-screen .rank-value .choice.is-picked{animation:m-pop .26s var(--m-enter)}
+
+/* ── Диалог выхода: две кнопки одной формы, главная — заливкой ── */
+.quiz-screen .dialog{animation:m-fade .18s var(--m-ease)}
+.quiz-screen .dialog section{width:min(350px,calc(100% - 40px));gap:0;padding:24px;border:1px solid var(--p-divider);border-radius:0 var(--leaf) 0 0;animation:m-dialog .3s var(--m-enter)}
+.quiz-screen .dialog h2{margin:0}
+.quiz-screen .dialog .dialog-text{margin:10px 0 0;font:400 14px/20px var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .dialog .dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.quiz-screen .dialog .dialog-actions .dialog-btn{display:flex;align-items:center;justify-content:center;width:100%;height:52px;min-height:52px;margin:0;padding:0 12px;border:1.5px solid var(--p-outline);border-radius:0 18px 0 0;background:transparent;color:var(--p-text);font:700 15px/1 var(--p-font-body);box-shadow:none;filter:none}
+.quiz-screen .dialog .dialog-actions .dialog-btn--primary{border-color:var(--p-primary);background:var(--p-primary);color:var(--p-on-primary)}
+@media (hover:hover) and (pointer:fine){
+  .quiz-screen .dialog .dialog-actions .dialog-btn:not(.dialog-btn--primary):hover{border-color:var(--p-text);background:color-mix(in srgb,var(--p-primary-container) 50%,transparent)}
+  .quiz-screen .dialog .dialog-actions .dialog-btn--primary:hover{filter:brightness(1.06)}
+}
+.quiz-screen .dialog .dialog-actions .dialog-btn:focus-visible{outline:2px solid var(--p-primary);outline-offset:3px}
+
+/* ── Старт теста: шапка с кнопкой «Назад» ── */
+.session-intro .intro-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.session-intro .intro-top .brand{display:flex;align-items:center;gap:6px;height:26px;margin:0;font:800 14px/1 var(--p-font-head);letter-spacing:0}
+.session-intro .intro-top .brand-mark{width:26px;height:26px;margin:0}
+.intro-back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 10px;border:1px solid var(--p-outline);border-radius:0 14px 0 0;background:transparent;color:var(--p-text);font:600 14px/1 var(--p-font-body);cursor:pointer}
+.intro-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+@media (hover:hover) and (pointer:fine){.intro-back:hover{border-color:var(--p-primary);color:var(--p-primary)}}
+.intro-back:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+.session-intro>h1{margin-top:28px}
+.session-intro .consent-choice{transition:background-color var(--m-in) var(--m-ease)}
+.session-intro .consent-choice input:checked{animation:m-pop .26s var(--m-enter)}
+
+/* ── «Дедлайны»: пустое состояние ── */
+.screen-deadlines .deadline-empty{position:relative;isolation:isolate;gap:14px;margin-top:28px;padding:24px 20px 20px;border:1px solid var(--p-divider);border-radius:0 28px 0 0;background:var(--p-surface);overflow:hidden}
+.screen-deadlines .deadline-empty::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--p-divider) 1px,transparent 1px),linear-gradient(90deg,var(--p-divider) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000 0,transparent 70%);mask-image:radial-gradient(120% 90% at 100% 0,#000 0,transparent 70%);pointer-events:none}
+.deadline-empty__art{display:flex;margin-bottom:6px}
+.deadline-empty__sheet{display:grid;grid-template-columns:repeat(7,14px);gap:4px;padding:12px;border-radius:0 14px 0 0;background:var(--p-primary-container)}
+.deadline-empty__sheet i{display:block;width:14px;height:14px;border:1px solid color-mix(in srgb,var(--p-primary) 35%,transparent)}
+.deadline-empty__sheet i.is-on{border-color:var(--p-accent);background:var(--p-accent)}
+#app.is-entering .deadline-empty__sheet i.is-on{animation:m-pop .4s var(--m-enter) .3s both}
+.screen-deadlines .deadline-empty p{font-size:20px;line-height:1.15}
+.screen-deadlines .deadline-empty .p-btn{justify-content:space-between;width:100%;margin-top:6px;border-radius:0 var(--leaf) 0 0}
+.screen-deadlines .deadline-empty .p-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+
+/* ── «Возможности»: группы по срокам, цвет и значок типа, понятный корешок ── */
+.t-olympiad{--tc:var(--p-warning)}
+.t-internship{--tc:var(--p-primary)}
+.t-course{--tc:var(--p-secondary-text)}
+.t-event{--tc:var(--p-success)}
+.catalog-group{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 0;padding:0 0 10px;border-bottom:1px solid var(--p-text);font:800 12px/1 var(--p-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--p-text)}
+.catalog-group:first-child{margin-top:0}
+.catalog-group span{display:flex;align-items:center;gap:8px}
+.catalog-group span::before{content:"";width:8px;height:8px;background:var(--p-accent)}
+.catalog-group b{font:700 12px/1 var(--p-font-body);letter-spacing:.04em;color:var(--p-muted)}
+.catalog-screen .opportunity-main .kicker{color:var(--tc,var(--p-primary))}
+.catalog-screen .opportunity-card{box-shadow:inset 3px 0 0 var(--tc,transparent)}
+.catalog-screen .opportunity-item.is-featured .opportunity-card{background:var(--p-primary-container)}
+.catalog-screen .opportunity-item.is-featured .opportunity-main strong{font-size:24px}
+.ticket-chip{margin-top:8px;padding:4px 6px;border:1px solid var(--p-warning);font:700 10px/1 var(--p-font-body);font-style:normal;letter-spacing:.02em;white-space:nowrap;color:var(--p-warning)}
+/* корешок: единый ритм «крупное значение + подпись», у типа — значок в строке-метке */
+.catalog-screen .opportunity-card{grid-template-columns:minmax(0,1fr) 104px}
+.catalog-screen .opportunity-main{gap:9px;padding:18px 14px 16px 20px}
+.catalog-screen .opportunity-main .kicker{display:flex;align-items:flex-start;gap:7px;font-size:10.5px;line-height:1.35;letter-spacing:.1em}
+.kicker-icon{display:flex;flex:none;width:15px;height:15px;margin-top:-1px;color:var(--tc,var(--p-primary))}
+.kicker-icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.catalog-screen .opportunity-main strong{font-size:20px;line-height:1.12;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:break-word}
+.catalog-screen .opportunity-item.is-featured .opportunity-main strong{font-size:22px}
+.catalog-screen .ticket-date{padding:18px 8px 16px 16px}
+.catalog-screen .ticket-date>span{gap:8px}
+.catalog-screen .ticket-date small{font-size:10px;line-height:1.3;letter-spacing:.1em}
+.ticket-date.is-year,.ticket-date.is-month{font-size:30px;line-height:.9;letter-spacing:-.04em}
+.ticket-date.is-year{color:color-mix(in srgb,var(--p-primary) 70%,var(--p-muted))}
+.catalog-screen .ticket-date.is-year small,.catalog-screen .ticket-date.is-month small,.catalog-screen .ticket-date.is-glyph small{color:var(--p-muted);font-weight:600}
+.ticket-glyph{display:flex;width:30px;height:30px;color:var(--p-muted)}
+.ticket-glyph svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* карточки появляются по очереди — видно, что список «собирается» */
+#app.is-entering>section.catalog-screen>.catalog-list:not(nav):not(.dialog){animation:none}
+#app.is-entering .catalog-list>*{animation:m-rise .5s var(--m-enter) both}
+#app.is-entering .catalog-list>:nth-child(2){animation-delay:60ms}
+#app.is-entering .catalog-list>:nth-child(3){animation-delay:120ms}
+#app.is-entering .catalog-list>:nth-child(4){animation-delay:180ms}
+#app.is-entering .catalog-list>:nth-child(5){animation-delay:240ms}
+#app.is-entering .catalog-list>:nth-child(n+6){animation-delay:300ms}
+
+/* фильтры типа: без горизонтальной прокрутки, все чипы видны и растягиваются по строкам */
+.catalog-filters{flex-wrap:wrap;overflow:visible;gap:8px;padding-top:14px}
+.catalog-filters button{flex:1 1 auto;justify-content:center;height:38px;padding:0 14px;font-size:14px}
+/* ── «Избранное»: карточки как в каталоге, табы-чипы, заметная кнопка внизу ── */
+.saved-screen.catalog-screen .saved-title::after{content:none}
+.saved-sub{margin:10px 0 0;font:400 15px/1.3 var(--p-font-body);color:var(--p-muted)}
+.saved-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;border:0;overflow:visible}
+.saved-tab{flex:1 1 auto;margin:0;height:38px;padding:0 14px;border:1px solid var(--p-outline);background:transparent;color:var(--p-text);font:400 14px/1 var(--p-font-body);text-align:center;transition:background-color var(--m-in) var(--m-ease),border-color var(--m-in) var(--m-ease),color var(--m-in) var(--m-ease)}
+.saved-tab:last-child{margin:0}
+.saved-tab[aria-selected="true"]{border-color:var(--p-primary);background:var(--p-primary-container);color:var(--p-primary);font-weight:700}
+.saved-list{gap:14px;padding-top:20px}
+.saved-closed{min-height:96px;border:1px dashed var(--p-outline);border-radius:0 20px 0 0;background:transparent}
+.saved-cta{display:flex;margin:26px 0 8px}
+.saved-cta .p-btn{flex:1;justify-content:space-between;height:56px;border-radius:0 22px 0 0;text-decoration:none}
+.saved-cta .p-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;transition:transform var(--m-in) var(--m-ease)}
+@media (hover:hover) and (pointer:fine){.saved-cta .p-btn:hover svg{transform:translateX(4px)}}
+/* «Возможности»: строка «Найдено» и заголовки групп дышат */
+.catalog-screen>p.catalog-count{margin:24px 0 16px}
+.catalog-group{padding-bottom:12px}
+/* «Дедлайны»: контурный год как у месяцев, а подпись — справа */
+.deadline-group.is-first .deadline-month{letter-spacing:-.04em}
+/* Без движения — всё стоит на месте, видно сразу */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-property:color,background-color,border-color,opacity!important}
+  .quiz-screen .scale-choices .choice:has(input:checked){transform:none}
+}
+
+/* Старт теста: карточка «О тесте» с крупным временем и выноской-оговоркой */
+.intro-card{position:relative;isolation:isolate;display:grid;gap:16px;margin-top:24px;padding:22px 20px;border:1px solid var(--p-divider);border-radius:0 28px 0 0;background:var(--p-surface);overflow:hidden}
+.intro-card::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--p-divider) 1px,transparent 1px),linear-gradient(90deg,var(--p-divider) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(110% 80% at 100% 0,#000 0,transparent 65%);mask-image:radial-gradient(110% 80% at 100% 0,#000 0,transparent 65%);opacity:.8}
+.intro-time{display:flex;align-items:flex-end;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--p-divider)}
+.intro-time b{font:800 52px/.9 var(--p-font-head);letter-spacing:-.05em;color:var(--p-primary)}
+.intro-time span{padding-bottom:4px;font:400 14px/1.3 var(--p-font-body);color:var(--p-muted)}
+.session-intro .intro-card .prompt{margin:0;padding-left:14px;border-left:4px solid var(--p-accent);font:400 17px/24px var(--p-font-body);color:var(--p-text)}
+.session-intro .p-cta{margin-top:24px}
+.intro-time b small{font:600 15px/1 var(--p-font-body);letter-spacing:0;color:var(--p-muted)}
+/* «Найти возможности» в пустом избранном: та же бирюзовая кнопка со скруглением справа сверху, что и остальные */
+.saved-empty-action{height:60px;border-radius:0 24px 0 0;background:var(--p-accent);color:var(--p-on-accent);font:800 16px/1 var(--p-font-body)}

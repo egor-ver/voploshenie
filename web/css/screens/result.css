@@ -1,0 +1,5 @@
+/* Экран результата: вид задан в css/print/result.css (редизайн «Печать»). */
+/* Единый вид главных кнопок: без смещённой рамки-«тени» */
+#app .p-cta::before{content:none}
+#app .p-cta,#app .path-actions,#app .actions.p-cta{margin-right:0}
+#app .profile-empty .profile-cta,#app .session-intro .p-cta{width:100%}

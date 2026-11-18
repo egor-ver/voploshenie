@@ -1,0 +1,1589 @@
+[
+ {
+  "name": "Всероссийская олимпиада студентов «Я — профессионал»",
+  "direction": "Менеджмент, экономика, финансы, аналитика и др.",
+  "date": "сентябрь 2026 – июнь 2027",
+  "audience": "1–4 курс, магистратура",
+  "format": "онлайн/очно",
+  "url": "https://yandex.ru/profi/",
+  "test_sphere": "бизнес",
+  "id": "oly-001",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Олимпиада студентов и выпускников «Высшая лига» НИУ ВШЭ",
+  "direction": "Менеджмент, экономика, финансы, маркетинг",
+  "date": "ноябрь 2026 – январь 2027",
+  "audience": "студенты и выпускники",
+  "format": "онлайн/очно",
+  "url": "https://talent.hse.ru/olimp/ma",
+  "test_sphere": "бизнес",
+  "id": "oly-002",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Международная олимпиада молодежи НИУ ВШЭ — Экономика",
+  "direction": "Экономика",
+  "date": "6–16 ноября 2026",
+  "audience": "старшие курсы/выпускники",
+  "format": "онлайн/очно",
+  "url": "https://olymp.hse.ru/inter/economics",
+  "test_sphere": "бизнес",
+  "id": "oly-003",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Региональная студенческая олимпиада «Финансы и кредит»",
+  "direction": "Финансы, кредит",
+  "date": "24 октября 2026",
+  "audience": "студенты вузов Санкт-Петербурга",
+  "format": "очно",
+  "url": "https://unecon.ru/nauka/nirs/studencheskie-olimpiady/regionalnye-predmetnye/finansy-i-kredit/",
+  "test_sphere": "финансы",
+  "id": "oly-004",
+  "type": "olympiad",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Региональная студенческая олимпиада «Управление качеством»",
+  "direction": "Управление качеством",
+  "date": "6 октября 2026",
+  "audience": "студенты вузов Санкт-Петербурга",
+  "format": "очно",
+  "url": "https://unecon.ru/nauka/nirs/studencheskie-olimpiady/regionalnye-predmetnye/upravlenie-kachestvom/",
+  "test_sphere": "бизнес",
+  "id": "oly-005",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "IX Всероссийская олимпиада по специальности «Экономическая безопасность»",
+  "direction": "Экономическая безопасность",
+  "date": "ноябрь 2026",
+  "audience": "студенческие команды",
+  "format": "очно",
+  "url": "https://uroveo.usue.ru/sobytiya/plan-uro-veo-rossii-na-2026-god",
+  "test_sphere": "финансы",
+  "id": "oly-006",
+  "type": "olympiad",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Всероссийская олимпиада по финансам, финансовым рынкам и финансовой грамотности",
+  "direction": "Финансы, рынки, финансовая грамотность",
+  "date": "2027-04-01",
+  "audience": "студенты и школьники",
+  "format": "очно/онлайн",
+  "url": "https://uroveo.usue.ru/sobytiya/plan-uro-veo-rossii-na-2026-god",
+  "test_sphere": "финансы",
+  "id": "oly-007",
+  "type": "olympiad",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Всероссийская студенческая олимпиада по информационной безопасности ОГУ",
+  "direction": "Информационная безопасность",
+  "date": "октябрь 2026",
+  "audience": "2–5 курс",
+  "format": "дистанционно",
+  "url": "https://www.osu.ru/docs/olymp/2025/olimp-vtzi/polojenie-olimp-ib.pdfё",
+  "test_sphere": "айти",
+  "id": "oly-008",
+  "type": "olympiad",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Всероссийская студенческая олимпиада «Промышленный менеджмент» НИТУ МИСИС",
+  "direction": "Производственный менеджмент, бизнес",
+  "date": "апрель 2026",
+  "audience": "3–4 курс бакалавриата, 4–5 специалитета",
+  "format": "очно",
+  "url": "https://misis.ru/applicants/studentam/pm/",
+  "test_sphere": "бизнес",
+  "id": "oly-009",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Международная студенческая олимпиада PetroCup — Лига Северной Евразии",
+  "direction": "Нефтегаз, экономика, инженерия",
+  "date": "29–30 октября 2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://pwso.petrocup.com/ru/",
+  "test_sphere": "инженерия",
+  "id": "oly-010",
+  "type": "olympiad",
+  "spheres": [
+   "engineering"
+  ]
+ },
+ {
+  "name": "Всероссийская олимпиада по управлению и экономике фармации «Битва ФармУправленцев»",
+  "direction": "Управление, экономика",
+  "date": "20 октября – 27 ноября 2026",
+  "audience": "студенты",
+  "format": "онлайн/очно",
+  "url": "https://medlib.ssmu.ru/obrazovanie/olympiads/olimpiada_bitvafarmuprav/",
+  "test_sphere": "бизнес",
+  "id": "oly-011",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Всероссийская студенческая олимпиада «Фармацевтическая ботаника: практикум будущего провизора»",
+  "direction": "Фармация, биология",
+  "date": "30 октября – 30 ноября 2026",
+  "audience": "студенты",
+  "format": "онлайн/очно",
+  "url": "https://ssmu.ru/obrazovanie/olympiads/olimpiada_farmbotanika.php",
+  "test_sphere": "биология",
+  "id": "oly-012",
+  "type": "olympiad",
+  "spheres": [
+   "biology"
+  ]
+ },
+ {
+  "name": "VIII Международная научно-практическая конференция «Трансформация финансовых рынков и финансовых систем в условиях цифровой экономики»",
+  "direction": "Конференция: финансовые рынки, цифровые активы, ЦФА, криптоинструменты, цифровая экономика",
+  "date": "22–23 октября 2026",
+  "audience": "студенты, преподаватели, исследователи, представители вузов и финансового рынка",
+  "format": "очно; Финансовый университет, Москва",
+  "url": "https://www.fa.ru/mp/transformation/",
+  "test_sphere": "финансы",
+  "id": "oly-013",
+  "type": "olympiad",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Всероссийская олимпиада для студентов и выпускников вузов «Магия магистратуры. Соедини науку и практику!»",
+  "direction": "Экономика и управление; Юриспруденция​; Туризм",
+  "date": "16.01.2027-15.03.2027",
+  "audience": "студенты",
+  "format": "Онлайн/очно; Финансовый университет, Москва",
+  "url": "https://www.fa.ru/for-applicants/olympiads/magia/",
+  "test_sphere": "бизнес",
+  "id": "oly-014",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "VI конкурс по международному налогообложению имени профессора Ирины Георгиевны Русаковой (InTax)!",
+  "direction": "Международное налогооблажение",
+  "date": "01.12.2026-01.04.2027",
+  "audience": "студенты",
+  "format": "Онлайн/очно;  ФНС, Москва",
+  "url": "https://www.nalog.gov.ru/rn77/intax/",
+  "test_sphere": "финансы",
+  "id": "oly-015",
+  "type": "olympiad",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Международная студенческая олимпиада Уральского федерального университета «Изумруд.Студент»",
+  "direction": "Естественные науки; Инженерные науки; Математика и информатика; Социальные и гуманитарные науки;  Экономика и управление",
+  "date": "2027-01-18",
+  "audience": "студенты",
+  "format": "онлайн/очно; УРФУ, Екатеринбург",
+  "url": "https://urfu.ru/ru/students/olympic/izumrud/",
+  "test_sphere": "бизнес",
+  "id": "oly-016",
+  "type": "olympiad",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Сбер — программа стажировок",
+  "direction": "Аналитика, управление продуктом, финансы, CIB, Data Science",
+  "date": "круглогодично / наборы 2026",
+  "audience": "от 2 курса",
+  "format": "гибрид/офис",
+  "url": "https://student.sber.ru/internship",
+  "test_sphere": "бизнес; финансы",
+  "id": "int-001",
+  "type": "internship",
+  "spheres": [
+   "business",
+   "finance"
+  ]
+ },
+ {
+  "name": "ВТБ Юниор",
+  "direction": "Финансы, продуктовый менеджмент, банковский бизнес",
+  "date": "2026, старт программы по набору",
+  "audience": "старшие курсы/выпускники",
+  "format": "офис/гибрид",
+  "url": "https://rabota.vtb.ru/internship/",
+  "test_sphere": "бизнес; финансы",
+  "id": "int-002",
+  "type": "internship",
+  "spheres": [
+   "business",
+   "finance"
+  ]
+ },
+ {
+  "name": "Т‑Старт",
+  "direction": "Аналитика, менеджмент, маркетинг, стратегия и финансы, IT",
+  "date": "круглогодично / наборы 2026",
+  "audience": "студенты и джуны",
+  "format": "гибрид",
+  "url": "https://www.tbank.ru/career/start/",
+  "test_sphere": "бизнес; финансы",
+  "id": "int-003",
+  "type": "internship",
+  "spheres": [
+   "business",
+   "finance"
+  ]
+ },
+ {
+  "name": "Винк — стажировка",
+  "direction": "IT, контент, аналитика, бизнес-направления",
+  "date": "2026",
+  "audience": "студенты и выпускники",
+  "format": "гибрид",
+  "url": "https://job.vink.ru/internship/",
+  "test_sphere": "айти",
+  "id": "int-004",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "КонсультантПлюс — стажировка",
+  "direction": "IT, право, аналитика",
+  "date": "28 сентября – 2 ноября 2026",
+  "audience": "3 курс и старше",
+  "format": "офис/гибрид",
+  "url": "https://www.consultant.ru/edu/student/stazjirovka/",
+  "test_sphere": "бизнес",
+  "id": "int-005",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "«Россия — страна возможностей» — старт карьеры",
+  "direction": "Проектный менеджмент, коммуникации, аналитика",
+  "date": "круглый год",
+  "audience": "студенты/выпускники",
+  "format": "Москва/гибрид",
+  "url": "https://career.rsv.ru/",
+  "test_sphere": "бизнес",
+  "id": "int-006",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Яндекс — стажировки и старт карьеры",
+  "direction": "Аналитика, продукты, IT, маркетинг",
+  "date": "2026, наборы в течение года",
+  "audience": "студенты/выпускники",
+  "format": "офис/гибрид/удаленно",
+  "url": "https://yandex.ru/jobs/",
+  "test_sphere": "айти",
+  "id": "int-007",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Ozon — стажировки",
+  "direction": "Аналитика, e-commerce, финансы, продукты, IT",
+  "date": "2026",
+  "audience": "студенты/выпускники",
+  "format": "гибрид/офис",
+  "url": "https://job.ozon.ru/",
+  "test_sphere": "бизнес; айти",
+  "id": "int-008",
+  "type": "internship",
+  "spheres": [
+   "business",
+   "it"
+  ]
+ },
+ {
+  "name": "VK — стажировки",
+  "direction": "Продукты, аналитика, маркетинг, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид/офис",
+  "url": "https://careers.vk.company/",
+  "test_sphere": "айти",
+  "id": "int-009",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "МТС — «МТС Старт»",
+  "direction": "Аналитика, маркетинг, продукты, финансы, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://career.mts.ru/",
+  "test_sphere": "связь",
+  "id": "int-010",
+  "type": "internship",
+  "spheres": [
+   "telecom"
+  ]
+ },
+ {
+  "name": "Авито — стажировки",
+  "direction": "Аналитика, продукты, маркетинг, IT",
+  "date": "2026",
+  "audience": "студенты/выпускники",
+  "format": "гибрид/офис",
+  "url": "https://avito.ru/company/job/",
+  "test_sphere": "бизнес",
+  "id": "int-011",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Wildberries — WBTech",
+  "direction": "IT, аналитика, e-commerce",
+  "date": "круглый год в 2026",
+  "audience": "студенты/джуны",
+  "format": "офис/гибрид",
+  "url": "https://www.wildberries.ru/",
+  "test_sphere": "бизнес",
+  "id": "int-012",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "X5 Group — стажировки",
+  "direction": "Аналитика, коммерция, маркетинг, логистика",
+  "date": "круглый год / наборы 2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://career.x5.ru/",
+  "test_sphere": "финансы; бизнес",
+  "id": "int-013",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "business"
+  ]
+ },
+ {
+  "name": "Магнит Tech — стажировки",
+  "direction": "IT, аналитика, e-commerce",
+  "date": "круглый год в 2026",
+  "audience": "студенты",
+  "format": "гибрид/удаленно",
+  "url": "https://rabota.magnit.ru/",
+  "test_sphere": "айти",
+  "id": "int-014",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Ростелеком — «Твоя первая»",
+  "direction": "IT, аналитика, продажи, управление",
+  "date": "2026",
+  "audience": "студенты/выпускники",
+  "format": "гибрид/офис",
+  "url": "https://rt.ru/",
+  "test_sphere": "связь",
+  "id": "int-015",
+  "type": "internship",
+  "spheres": [
+   "telecom"
+  ]
+ },
+ {
+  "name": "КРОК — ИТ-школа и стажировки",
+  "direction": "IT, аналитика, проектное управление",
+  "date": "лето–осень 2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://career.croc.ru/",
+  "test_sphere": "айти",
+  "id": "int-016",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Касперский — SafeBoard / стажировки",
+  "direction": "Информационная безопасность, аналитика, IT",
+  "date": "осенние наборы 2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://www.kaspersky.ru/about/careers",
+  "test_sphere": "айти",
+  "id": "int-017",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Positive Technologies — старт карьеры",
+  "direction": "ИБ, аналитика, продукты, IT",
+  "date": "2026",
+  "audience": "студенты/выпускники",
+  "format": "гибрид",
+  "url": "https://career.ptsecurity.com/",
+  "test_sphere": "айти",
+  "id": "int-018",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "1С — практика и старт карьеры",
+  "direction": "IT, бизнес-аналитика, внедрение",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "офис/гибрид",
+  "url": "https://1c.ru/rus/job/vacancy/",
+  "test_sphere": "айти",
+  "id": "int-019",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Контур — стажировки",
+  "direction": "Аналитика, продукты, IT, менеджмент",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид/удаленно",
+  "url": "https://kontur.ru/career",
+  "test_sphere": "айти",
+  "id": "int-020",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "IBS — стажировки",
+  "direction": "Консалтинг, аналитика, IT, управление проектами",
+  "date": "2026",
+  "audience": "студенты/выпускники",
+  "format": "гибрид",
+  "url": "https://ibs.ru/career/",
+  "test_sphere": "айти; бизнес",
+  "id": "int-021",
+  "type": "internship",
+  "spheres": [
+   "it",
+   "business"
+  ]
+ },
+ {
+  "name": "Росатом — стажировки и практика",
+  "direction": "Проектное управление, экономика, IT, инженерия",
+  "date": "2026",
+  "audience": "студенты старших курсов",
+  "format": "очно/гибрид",
+  "url": "https://www.rosatom.ru/career/",
+  "test_sphere": "айти; бизнес",
+  "id": "int-022",
+  "type": "internship",
+  "spheres": [
+   "it",
+   "business"
+  ]
+ },
+ {
+  "name": "Роснефть — практика и стажировки",
+  "direction": "Экономика, финансы, управление, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://www.rosneft.ru/Development/students/",
+  "test_sphere": "айти; бизнес",
+  "id": "int-023",
+  "type": "internship",
+  "spheres": [
+   "it",
+   "business"
+  ]
+ },
+ {
+  "name": "Газпром нефть — стажировки",
+  "direction": "Аналитика, финансы, маркетинг, управление",
+  "date": "2026",
+  "audience": "студенты старших курсов",
+  "format": "гибрид/офис",
+  "url": "https://career.gazprom-neft.ru/",
+  "test_sphere": "айти; бизнес",
+  "id": "int-024",
+  "type": "internship",
+  "spheres": [
+   "it",
+   "business"
+  ]
+ },
+ {
+  "name": "Газпром — практика для студентов",
+  "direction": "Экономика, финансы, управление, инженерия",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://www.gazprom.ru/career/",
+  "test_sphere": "финансы; бизнес",
+  "id": "int-025",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "business"
+  ]
+ },
+ {
+  "name": "ЛУКОЙЛ — практика и стажировки",
+  "direction": "Экономика, финансы, управление, нефть и газ",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://career.lukoil.ru/",
+  "test_sphere": "финансы; бизнес",
+  "id": "int-026",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "business"
+  ]
+ },
+ {
+  "name": "СИБУР — стажировки",
+  "direction": "Аналитика, финансы, экономика, HR, управление",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно/гибрид",
+  "url": "https://www.sibur.ru/ru/career/",
+  "test_sphere": "финансы",
+  "id": "int-027",
+  "type": "internship",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Норникель — студентам",
+  "direction": "Экономика, финансы, аналитика, производство, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно/гибрид",
+  "url": "https://career.nornickel.ru/",
+  "test_sphere": "финансы; айти",
+  "id": "int-028",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "it"
+  ]
+ },
+ {
+  "name": "Северсталь — практика и стажировки",
+  "direction": "Экономика, аналитика, производство, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно/гибрид",
+  "url": "https://career.severstal.com/",
+  "test_sphere": "айти; бизнес",
+  "id": "int-029",
+  "type": "internship",
+  "spheres": [
+   "it",
+   "business"
+  ]
+ },
+ {
+  "name": "НЛМК — студентам",
+  "direction": "Экономика, финансы, управление, производство",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://nlmk.com/ru/career/",
+  "test_sphere": "финансы; бизнес",
+  "id": "int-030",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "business"
+  ]
+ },
+ {
+  "name": "РУСАЛ — практика и стажировки",
+  "direction": "Экономика, управление, аналитика, производство",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно/гибрид",
+  "url": "https://rusal.ru/career/",
+  "test_sphere": "финансы; бизнес",
+  "id": "int-031",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "business"
+  ]
+ },
+ {
+  "name": "ФосАгро — студентам",
+  "direction": "Экономика, финансы, управление, производство",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://www.phosagro.ru/career/",
+  "test_sphere": "финансы",
+  "id": "int-032",
+  "type": "internship",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "ЕвроХим — стажировки",
+  "direction": "Экономика, управление, аналитика, производство",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://www.eurochem.ru/career/",
+  "test_sphere": "финансы",
+  "id": "int-033",
+  "type": "internship",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "АЛРОСА — практика и стажировки",
+  "direction": "Экономика, финансы, управление, добыча",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно",
+  "url": "https://www.alrosa.ru/career/",
+  "test_sphere": "финансы; бизнес",
+  "id": "int-034",
+  "type": "internship",
+  "spheres": [
+   "finance",
+   "business"
+  ]
+ },
+ {
+  "name": "Аэрофлот — программы для студентов",
+  "direction": "Экономика, управление, авиация, аналитика",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "Москва/очно",
+  "url": "https://www.aeroflot.ru/ru-ru/about/career",
+  "test_sphere": "бизнес",
+  "id": "int-035",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "РЖД — практика и стажировки",
+  "direction": "Логистика, экономика, управление, аналитика",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно/гибрид",
+  "url": "https://team.rzd.ru/",
+  "test_sphere": "бизнес; айти",
+  "id": "int-036",
+  "type": "internship",
+  "spheres": [
+   "business",
+   "it"
+  ]
+ },
+ {
+  "name": "СИБУР Диджитал — старт карьеры",
+  "direction": "Аналитика, IT, цифровизация процессов",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://www.sibur.ru/ru/career/",
+  "test_sphere": "бизнес; айти",
+  "id": "int-037",
+  "type": "internship",
+  "spheres": [
+   "business",
+   "it"
+  ]
+ },
+ {
+  "name": "Х5 Tech — стажировки",
+  "direction": "Аналитика, data, IT, продукт",
+  "date": "круглый год 2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://career.x5.ru/",
+  "test_sphere": "айти",
+  "id": "int-038",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "МегаФон — старт карьеры",
+  "direction": "Аналитика, маркетинг, финансы, продукты",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://career.megafon.ru/",
+  "test_sphere": "связь",
+  "id": "int-039",
+  "type": "internship",
+  "spheres": [
+   "telecom"
+  ]
+ },
+ {
+  "name": "Билайн — стажировки",
+  "direction": "Аналитика, маркетинг, продукты, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://beeline.ru/about/career/",
+  "test_sphere": "айти; бизнес",
+  "id": "int-040",
+  "type": "internship",
+  "spheres": [
+   "it",
+   "business"
+  ]
+ },
+ {
+  "name": "М.Видео-Эльдорадо — стажировки",
+  "direction": "Аналитика, маркетинг, коммерция, e-commerce",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид/офис",
+  "url": "https://mvideoeldorado.ru/career/",
+  "test_sphere": "айти",
+  "id": "int-041",
+  "type": "internship",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "ВкусВилл — старт карьеры",
+  "direction": "Маркетинг, аналитика, коммерция, управление",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "Москва/гибрид",
+  "url": "https://vkusvill.ru/career/",
+  "test_sphere": "бизнес",
+  "id": "int-042",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Лента — стажировки",
+  "direction": "Коммерция, логистика, аналитика, управление",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "очно/гибрид",
+  "url": "https://lenta.com/career/",
+  "test_sphere": "бизнес",
+  "id": "int-043",
+  "type": "internship",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "ДОМ.РФ — программа «Старт»",
+  "direction": "Финансы, аналитика, управление, недвижимость",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид",
+  "url": "https://дом.рф/",
+  "test_sphere": "финансы",
+  "id": "int-044",
+  "type": "internship",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "Совкомбанк — «Совкомбанк Старт»",
+  "direction": "Финансы, аналитика, продажи, IT",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "гибрид/офис",
+  "url": "https://sovcombank.ru/",
+  "test_sphere": "финансы",
+  "id": "int-045",
+  "type": "internship",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "КЭПТ (Kept) — стажировки и старт карьеры",
+  "direction": "Консалтинг, стратегия, финансы, аналитика",
+  "date": "2026",
+  "audience": "студенты старших курсов/выпускники",
+  "format": "гибрид/офис",
+  "url": "https://kept.ru/career/",
+  "test_sphere": "финансы",
+  "id": "int-046",
+  "type": "internship",
+  "spheres": [
+   "finance"
+  ]
+ },
+ {
+  "name": "«Стажер госслужбы России» — участие Финансового университета",
+  "direction": "Государственное управление, аналитика, госслужба",
+  "date": "2026",
+  "audience": "студенты и выпускники — по конкурсному отбору",
+  "format": "очно/гибрид — зависит от ведомства",
+  "url": "https://www.fa.ru/university/press-center/novye-kadry-dlya-gossluzhby-razvitie-instituta-stazhirovok",
+  "test_sphere": "госслужба",
+  "id": "int-047",
+  "type": "internship",
+  "spheres": [
+   "public_service"
+  ]
+ },
+ {
+  "name": "Аналитик данных — НИУ ВШЭ",
+  "direction": "Data analytics, SQL, Python, статистика",
+  "date": "старт 14 октября 2026",
+  "audience": "студенты/специалисты",
+  "format": "онлайн",
+  "url": "https://www.hse.ru/edu/dpo/557704084",
+  "test_sphere": "айти",
+  "id": "cou-001",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Аналитика в управлении персоналом (HR-аналитика) — НИУ ВШЭ",
+  "direction": "HR-аналитика, Excel, Power BI",
+  "date": "19 октября 2026",
+  "audience": "студенты/HR",
+  "format": "онлайн",
+  "url": "https://www.hse.ru/edu/dpo/430128038",
+  "test_sphere": "айти",
+  "id": "cou-002",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Управление данными и аналитика на SQL — НИУ ВШЭ",
+  "direction": "SQL, базы данных, аналитика",
+  "date": "22 сентября – 27 октября 2026",
+  "audience": "студенты/аналитики",
+  "format": "онлайн",
+  "url": "https://www.hse.ru/edu/dpo/703040944",
+  "test_sphere": "айти",
+  "id": "cou-003",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Продвинутый SQL: хранимые компоненты БД — НИУ ВШЭ",
+  "direction": "SQL, базы данных",
+  "date": "9 ноября 2026",
+  "audience": "студенты/аналитики",
+  "format": "онлайн",
+  "url": "https://nnov.hse.ru/bipm/dpo",
+  "test_sphere": "айти",
+  "id": "cou-004",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Основы Excel для анализа и визуализации данных — НИУ ВШЭ",
+  "direction": "Excel, анализ данных",
+  "date": "1 ноября 2026",
+  "audience": "1–4 курс/специалисты",
+  "format": "онлайн",
+  "url": "https://nnov.hse.ru/bipm/dpo",
+  "test_sphere": "айти",
+  "id": "cou-005",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Анализ и оптимизация бизнес-процессов — НИУ ВШЭ",
+  "direction": "BPMN, бизнес-процессы",
+  "date": "2026",
+  "audience": "студенты менеджмента",
+  "format": "онлайн",
+  "url": "https://nnov.hse.ru/bipm/dpo",
+  "test_sphere": "айти",
+  "id": "cou-006",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Аналитика в управлении персоналом — НИУ ВШЭ",
+  "direction": "HR, аналитика, Power BI, Excel",
+  "date": "19 октября 2026",
+  "audience": "студенты/HR",
+  "format": "онлайн",
+  "url": "https://mbann.hse.ru/",
+  "test_sphere": "айти",
+  "id": "cou-007",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Современный менеджмент — НИУ ВШЭ",
+  "direction": "Менеджмент, управление",
+  "date": "2027 набор",
+  "audience": "студенты/специалисты",
+  "format": "онлайн",
+  "url": "https://mbann.hse.ru/",
+  "test_sphere": "бизнес",
+  "id": "cou-008",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Управление продуктами — НИУ ВШЭ",
+  "direction": "Product management",
+  "date": "2027 набор",
+  "audience": "студенты/начинающие менеджеры",
+  "format": "онлайн",
+  "url": "https://mbann.hse.ru/",
+  "test_sphere": "бизнес",
+  "id": "cou-009",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Курс «Аналитик данных» — Яндекс Практикум",
+  "direction": "SQL, Python, BI, статистика",
+  "date": "8 октября / 22 октября / 5 ноября 2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://practicum.yandex.ru/data-analyst/",
+  "test_sphere": "айти",
+  "id": "cou-010",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "BI-аналитик — Яндекс Практикум",
+  "direction": "BI, аналитика, визуализация",
+  "date": "2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://practicum.yandex.ru/bi-analyst/",
+  "test_sphere": "айти",
+  "id": "cou-011",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Специалист по Data Science — Яндекс Практикум",
+  "direction": "Python, SQL, Data Science",
+  "date": "2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://practicum.yandex.ru/promo/top-data-analysis/",
+  "test_sphere": "айти",
+  "id": "cou-012",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Excel: от основ до анализа данных — Нетология",
+  "direction": "Excel, Power Query, Power Pivot",
+  "date": "2026",
+  "audience": "1–4 курс/специалисты",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/excel",
+  "test_sphere": "айти",
+  "id": "cou-013",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Основы Excel: первый анализ данных — Нетология",
+  "direction": "Excel, сводные таблицы, визуализация",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/base-excel-sg",
+  "test_sphere": "айти",
+  "id": "cou-014",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Аналитик данных — Нетология",
+  "direction": "Python, SQL, BI",
+  "date": "5 октября 2026 – 4 мая 2027",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/data-analyst",
+  "test_sphere": "айти",
+  "id": "cou-015",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Расширенный курс «Аналитик данных» — Нетология",
+  "direction": "SQL, Python, Power BI, статистика",
+  "date": "18 сентября 2026 – 19 января 2028",
+  "audience": "студенты/аналитики",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/data_analyst_ultimate",
+  "test_sphere": "айти",
+  "id": "cou-016",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Введение в аналитику данных — Нетология",
+  "direction": "Основы аналитики, Excel",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/data-start",
+  "test_sphere": "айти",
+  "id": "cou-017",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Менеджер проектов — Нетология",
+  "direction": "Project management, Agile, планирование",
+  "date": "12 октября 2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/project",
+  "test_sphere": "бизнес",
+  "id": "cou-018",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Project Manager — расширенный курс Нетологии",
+  "direction": "Управление проектами, риски, бюджет",
+  "date": "2026",
+  "audience": "студенты/специалисты",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/project-ultimate.html",
+  "test_sphere": "айти",
+  "id": "cou-019",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Управление маркетингом — Нетология",
+  "direction": "Маркетинг, стратегия, аналитика",
+  "date": "23 ноября 2026",
+  "audience": "студенты/маркетологи",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/upravlenie-marketingom",
+  "test_sphere": "айти",
+  "id": "cou-020",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "HR-менеджер — Нетология",
+  "direction": "HR, рекрутинг, HR-аналитика",
+  "date": "22 сентября 2026",
+  "audience": "студенты/начинающие HR",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/hr-manager",
+  "test_sphere": "бизнес",
+  "id": "cou-021",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Начинающий руководитель — Нетология",
+  "direction": "Менеджмент, финансы, бизнес-процессы",
+  "date": "21 октября – 2 декабря 2026",
+  "audience": "студенты/начинающие менеджеры",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/top-manager",
+  "test_sphere": "бизнес",
+  "id": "cou-022",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Интернет-маркетолог: расширенный курс — Нетология",
+  "direction": "Digital marketing, аналитика, ИИ",
+  "date": "18 сентября 2026 – 11 ноября 2027",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/senior-internet-marketer.html",
+  "test_sphere": "айти",
+  "id": "cou-023",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Продакт-менеджер: расширенный курс — Нетология",
+  "direction": "Product management",
+  "date": "21 сентября 2026 – 5 августа 2027",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/product-ultimate",
+  "test_sphere": "бизнес",
+  "id": "cou-024",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Проектный менеджмент — Нетология/РГГУ",
+  "direction": "Проектный менеджмент",
+  "date": "1 сентября 2026 – 30 июля 2030",
+  "audience": "студенты",
+  "format": "онлайн",
+  "url": "https://netology.ru/programs/menedzhment",
+  "test_sphere": "бизнес",
+  "id": "cou-025",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "SQL для анализа данных — Skillbox",
+  "direction": "SQL, базы данных",
+  "date": "2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://skillbox.ru/course/sql-analysis/",
+  "test_sphere": "айти",
+  "id": "cou-026",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Управление компанией — Skillbox",
+  "direction": "Стратегия, финансы, управление",
+  "date": "2026",
+  "audience": "студенты/предприниматели",
+  "format": "онлайн",
+  "url": "https://skillbox.ru/course/commercial-management/",
+  "test_sphere": "бизнес",
+  "id": "cou-027",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Маркетинговые исследования — Skillbox",
+  "direction": "Маркетинг, исследования, аналитика",
+  "date": "2026",
+  "audience": "студенты/маркетологи",
+  "format": "онлайн",
+  "url": "https://skillbox.ru/course/marketing-researches/",
+  "test_sphere": "бизнес",
+  "id": "cou-028",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Финансовый менеджер — Skillbox",
+  "direction": "Финансы, бюджетирование, анализ",
+  "date": "2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://skillbox.ru/course/profession-finance-manager/",
+  "test_sphere": "бизнес",
+  "id": "cou-029",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Финансовый аналитик — Skillbox",
+  "direction": "Финансовый анализ, моделирование",
+  "date": "2026",
+  "audience": "студенты/начинающие",
+  "format": "онлайн",
+  "url": "https://skillbox.ru/course/financial-analyst/",
+  "test_sphere": "бизнес",
+  "id": "cou-030",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Инструменты аналитики данных + ИИ — Eduson",
+  "direction": "Excel, SQL, Python, Power BI, ИИ",
+  "date": "обновлен в 2026",
+  "audience": "студенты/аналитики",
+  "format": "онлайн",
+  "url": "https://eduson.academy/tools",
+  "test_sphere": "айти",
+  "id": "cou-031",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Аналитика для руководителей — Eduson",
+  "direction": "Бизнес-аналитика, принятие решений",
+  "date": "обновлен в 2026",
+  "audience": "студенты/начинающие менеджеры",
+  "format": "онлайн",
+  "url": "https://eduson.academy/analytics-for-managers",
+  "test_sphere": "бизнес",
+  "id": "cou-032",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Python для анализа данных с нуля — Stepik",
+  "direction": "Python, анализ данных",
+  "date": "обновлен 27 сентября 2026",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/course/300174/promo",
+  "test_sphere": "айти",
+  "id": "cou-033",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "SQL с нуля: запросы в браузере — Stepik",
+  "direction": "SQL, базы данных",
+  "date": "обновлен 15 сентября 2026",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/course/299341/promo",
+  "test_sphere": "айти",
+  "id": "cou-034",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Экономика — OpenEdu / МГТУ",
+  "direction": "Экономика, экономическая теория",
+  "date": "7 сентября – 13 декабря 2026",
+  "audience": "студенты",
+  "format": "онлайн",
+  "url": "https://openedu.ru/course/spbstu/MGE/?session=fall_2026",
+  "test_sphere": "бизнес",
+  "id": "cou-035",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Курс по анализу рисков и управленческим решениям — OpenEdu/МИСИС",
+  "direction": "Риски, инвестиции, управление",
+  "date": "18 августа 2026 – 19 января 2027",
+  "audience": "студенты менеджмента/экономики",
+  "format": "онлайн",
+  "url": "https://openedu.ru/course/misis/RMN/",
+  "test_sphere": "бизнес",
+  "id": "cou-036",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Курс OpenEdu — МИСИС, направление «Менеджмент»",
+  "direction": "Менеджмент",
+  "date": "18 августа 2026 – 19 января 2027",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://openedu.ru/course/misis/FSL01/?session=fall_2026",
+  "test_sphere": "бизнес",
+  "id": "cou-037",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Т‑Образование — курсы для начинающих специалистов",
+  "direction": "Аналитика, IT, маркетинг, контент",
+  "date": "круглый год",
+  "audience": "студенты",
+  "format": "онлайн",
+  "url": "https://education.tbank.ru/work/",
+  "test_sphere": "айти",
+  "id": "cou-038",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Карьера будущего — Сбер",
+  "direction": "Карьерные навыки, поиск работы",
+  "date": "старт в любое время",
+  "audience": "студенты",
+  "format": "онлайн",
+  "url": "https://student.sber.ru/",
+  "test_sphere": "бизнес",
+  "id": "cou-039",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "ГигаАкадемия — Сбер",
+  "direction": "ИИ, цифровые навыки",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "онлайн",
+  "url": "https://student.sber.ru/",
+  "test_sphere": "айти",
+  "id": "cou-040",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Школа 21 — Сбер",
+  "direction": "IT, цифровые компетенции",
+  "date": "набор с июля 2026",
+  "audience": "студенты/начинающие",
+  "format": "очно/онлайн",
+  "url": "https://student.sber.ru/",
+  "test_sphere": "айти",
+  "id": "cou-041",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Курсы и образовательные программы Сбера",
+  "direction": "Финансы, аналитика, цифровые навыки",
+  "date": "2026",
+  "audience": "студенты",
+  "format": "онлайн",
+  "url": "https://student.sber.ru/",
+  "test_sphere": "айти",
+  "id": "cou-042",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Бесплатные курсы Stepik по Excel",
+  "direction": "Excel, таблицы, анализ",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/catalog/search?search=Excel",
+  "test_sphere": "айти",
+  "id": "cou-043",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Курсы Stepik по статистике",
+  "direction": "Статистика, анализ данных",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/catalog/search?search=статистика",
+  "test_sphere": "айти",
+  "id": "cou-044",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Курсы Stepik по бизнес-аналитике",
+  "direction": "Бизнес-аналитика, данные",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/catalog/search?search=бизнес-аналитика",
+  "test_sphere": "айти",
+  "id": "cou-045",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Курсы Stepik по Power BI",
+  "direction": "Power BI, визуализация",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/catalog/search?search=Power%20BI",
+  "test_sphere": "айти",
+  "id": "cou-046",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Курсы Stepik по управлению проектами",
+  "direction": "Project management, Agile",
+  "date": "круглогодично",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://stepik.org/catalog/search?search=управление%20проектами",
+  "test_sphere": "бизнес",
+  "id": "cou-047",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ },
+ {
+  "name": "Курсы OpenEdu по анализу данных",
+  "direction": "Data analytics, статистика",
+  "date": "осень 2026",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://openedu.ru/course/",
+  "test_sphere": "айти",
+  "id": "cou-048",
+  "type": "course",
+  "spheres": [
+   "it"
+  ]
+ },
+ {
+  "name": "Курсы OpenEdu по менеджменту",
+  "direction": "Менеджмент, управление",
+  "date": "осень 2026",
+  "audience": "1–4 курс",
+  "format": "онлайн",
+  "url": "https://openedu.ru/course/",
+  "test_sphere": "бизнес",
+  "id": "cou-049",
+  "type": "course",
+  "spheres": [
+   "business"
+  ]
+ }
+]

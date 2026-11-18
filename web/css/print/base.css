@@ -1,0 +1,54 @@
+/* Редизайн «Печать и чертёж» — общий слой. Экраны подключают свои css/print/<экран>.css после него. */
+:root{--p-bg:#F8F7FC;--p-surface:#FFFFFF;--p-text:#211C35;--p-muted:#655E78;--p-outline:#655E78;--p-divider:#DDD9E8;--p-primary:#6D4AFF;--p-on-primary:#FFFFFF;--p-primary-container:#EDE8FF;--p-accent:#14B8A6;--p-on-accent:#211C35;--p-secondary-text:#0F766E;--p-success:#15803D;--p-warning:#92400E;--p-error:#B3261E;--p-font-body:Arial,Helvetica,sans-serif;--p-font-head:Manrope,Arial,sans-serif;--p-leaf:28px;--p-side:20px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--p-bg:#111019;--p-surface:#1C192B;--p-text:#F5F3FF;--p-muted:#B8B3CC;--p-outline:#B1A8C2;--p-divider:#3D374F;--p-primary:#B6A2FF;--p-on-primary:#151321;--p-primary-container:#352B52;--p-accent:#5EEAD4;--p-secondary-text:#5EEAD4;--p-success:#4ADE80;--p-warning:#FBBF24;--p-error:#FFB4AB}}
+:root[data-theme="dark"]{--p-bg:#111019;--p-surface:#1C192B;--p-text:#F5F3FF;--p-muted:#B8B3CC;--p-outline:#B1A8C2;--p-divider:#3D374F;--p-primary:#B6A2FF;--p-on-primary:#151321;--p-primary-container:#352B52;--p-accent:#5EEAD4;--p-secondary-text:#5EEAD4;--p-success:#4ADE80;--p-warning:#FBBF24;--p-error:#FFB4AB}
+[hidden]{display:none!important}
+html,body{background:var(--p-bg);color:var(--p-text);font-family:var(--p-font-body)}
+*{border-radius:0;box-shadow:none}
+h1,h2,h3,.p-head{font-family:var(--p-font-head);font-weight:800;letter-spacing:-.045em;color:var(--p-text)}
+.p-title{font-size:40px;line-height:.95;margin:0}
+.p-title::after{content:".";color:var(--p-secondary-text)}
+.p-title--bare::after{content:none}
+.p-kicker{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-secondary-text)}
+.p-muted{color:var(--p-muted)}
+.p-rule{border:0;border-top:1px solid var(--p-divider);margin:0}
+.p-grid-bg{background-image:linear-gradient(var(--p-divider) 1px,transparent 1px),linear-gradient(90deg,var(--p-divider) 1px,transparent 1px);background-size:24px 24px}
+/* Кнопки */
+.p-btn{min-height:52px;padding:0 20px;font:700 15px var(--p-font-body);border:1px solid var(--p-outline);background:transparent;color:var(--p-text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.p-btn--primary{background:var(--p-primary);color:var(--p-on-primary);border-color:var(--p-primary);border-top-left-radius:var(--p-leaf)}
+.p-btn--link{border:0;min-height:44px;background:none;text-decoration:underline;color:var(--p-text)}
+.p-cta{position:relative;display:inline-flex;isolation:isolate}
+.p-cta::before{content:none}
+.p-cta .p-btn{background:var(--p-accent);color:var(--p-on-accent);border-color:var(--p-accent);width:100%}
+.p-btn:disabled,.p-btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+.p-btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+/* Штамп */
+.p-stamp{display:inline-block;padding:3px;transform:rotate(-5deg);color:var(--p-warning);border:1px solid currentColor}
+.p-stamp>span{display:block;padding:5px 10px;border:1px solid currentColor;font:800 12px var(--p-font-body);letter-spacing:.1em;text-transform:uppercase}
+.p-stamp--error{color:var(--p-error)}.p-stamp--success{color:var(--p-success)}.p-stamp--muted{color:var(--p-muted)}
+/* Растровая шкала: <div class="p-dots" style="--n:20;--v:14"> + число снаружи; точки рисует js/ui/dots.js */
+.p-dots{display:flex;align-items:center;gap:3px;height:20px}
+.p-dots i{display:block;border-radius:50%;background:var(--p-divider);width:var(--d);height:var(--d);flex:none}
+.p-dots i.on{background:var(--c)}
+.p-meter{display:flex;align-items:baseline;gap:12px}
+.p-meter b{font:800 36px var(--p-font-head);letter-spacing:-.05em}
+.p-meter b small{font-size:.5em;letter-spacing:0}
+/* Билет */
+.p-ticket{display:grid;grid-template-columns:1fr 84px;background:var(--p-surface);border:1px solid var(--p-divider);position:relative;text-decoration:none;color:inherit}
+.p-ticket__main{padding:16px;min-width:0}
+.p-ticket__stub{position:relative;border-left:2px dashed var(--p-divider);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:12px 6px}
+.p-ticket__stub::before,.p-ticket__stub::after{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--p-bg);border:1px solid var(--p-divider)}
+.p-ticket__stub::before{top:-9px}.p-ticket__stub::after{bottom:-9px}
+.p-ticket__day{font:800 32px/1 var(--p-font-head);letter-spacing:-.05em}
+.p-ticket__month{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+/* Линейка (прогресс) */
+.p-ruler{display:flex;align-items:flex-end;gap:5px;height:18px}
+.p-ruler i{flex:1;max-width:3px;height:10px;background:var(--p-divider)}
+.p-ruler i.on{background:var(--p-primary);height:18px}
+/* Чипы, поля */
+.p-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid var(--p-outline);background:transparent;color:var(--p-text);font:600 13px var(--p-font-body)}
+.p-chip[aria-pressed="true"],.p-chip.is-on{background:var(--p-primary-container);border-color:var(--p-primary)}
+.p-field::placeholder{color:var(--p-muted);opacity:1}
+.p-field{height:48px;padding:0 14px;border:1px solid var(--p-outline);background:var(--p-surface);color:var(--p-text);font:15px var(--p-font-body)}
+/* Нижняя навигация */
+nav.bottom-nav{background:var(--p-surface);border-top:1px solid var(--p-divider)}

@@ -1,0 +1,26 @@
+/* print: оболочка — каркас, нижняя навигация, шапка */
+html{color-scheme:light dark;-webkit-text-size-adjust:100%}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+body{margin:0;min-width:320px;background:var(--p-bg);color:var(--p-text);font-family:var(--p-font-body);-webkit-font-smoothing:antialiased}
+#app{width:min(100%,390px);margin-inline:auto;background:transparent;padding-bottom:calc(var(--nav-height,88px) + 16px + env(safe-area-inset-bottom,0px))}
+@media(min-width:600px){body{box-shadow:none}}
+/* Шапка с логотипом */
+.brand{color:var(--p-text);font-family:var(--p-font-head);font-weight:800;letter-spacing:-.02em;text-transform:lowercase}
+.brand-mark{display:block;flex:none}
+/* Нижняя навигация: 5 вкладок, полоска 24×3 над активной, иконка 24 + подпись 10,5, фон surface, верхняя линия divider */
+nav.bottom-nav{box-sizing:border-box;position:fixed;z-index:5;left:50%;right:auto;bottom:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:min(100%,390px);height:calc(var(--nav-height,88px) + env(safe-area-inset-bottom,0px));padding:0 0 env(safe-area-inset-bottom,0px);background:var(--p-surface);border-top:1px solid var(--p-divider);transform:translateX(-50%)}
+nav.bottom-nav a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;min-width:0;padding:16px 0 0;color:var(--p-muted);font:400 10.5px/1.2 var(--p-font-body);text-decoration:none;text-align:center;-webkit-tap-highlight-color:transparent}
+nav.bottom-nav a>span:last-child{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+nav.bottom-nav a .nav-icon{display:block;width:24px;height:24px;flex:none;background-color:currentColor}
+nav.bottom-nav a[aria-current="page"]{color:var(--p-primary);font-weight:700}
+nav.bottom-nav a[aria-current="page"]::before{content:"";position:absolute;top:0;left:50%;width:24px;height:3px;border-radius:0;background:var(--p-primary);transform:translateX(-50%)}
+nav.bottom-nav a .nav-icon-path{-webkit-mask:url("../../icons/nav_path.svg") center/contain no-repeat;mask:url("../../icons/nav_path.svg") center/contain no-repeat}
+nav.bottom-nav a .nav-icon-opportunities{-webkit-mask:url("../../icons/nav_opportunities.svg") center/contain no-repeat;mask:url("../../icons/nav_opportunities.svg") center/contain no-repeat}
+nav.bottom-nav a .nav-icon-saved{-webkit-mask:url("../../icons/nav_saved.svg") center/contain no-repeat;mask:url("../../icons/nav_saved.svg") center/contain no-repeat}
+nav.bottom-nav a .nav-icon-deadlines{-webkit-mask:url("../../icons/nav_deadlines.svg") center/contain no-repeat;mask:url("../../icons/nav_deadlines.svg") center/contain no-repeat}
+nav.bottom-nav a .nav-icon-profile{-webkit-mask:url("../../icons/nav_profile.svg") center/contain no-repeat;mask:url("../../icons/nav_profile.svg") center/contain no-repeat}
+nav.bottom-nav a:focus-visible{outline:2px solid var(--p-primary);outline-offset:-2px}
+
+/* Углы 0 везде, кроме «листа» у акцентов */
+.save-toggle,.catalog-sort{border-radius:0}

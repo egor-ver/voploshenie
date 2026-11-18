@@ -1,0 +1,78 @@
+/* print: saved — кадры 13 «Избранное» и 07 «Пусто · избранное» (перенос из source.html) */
+.saved-screen{flex:1;display:flex;flex-direction:column;padding:20px 0 0}
+.saved-screen>.brand{display:flex;align-items:center;gap:6px;height:26px;margin:0 0 20px;font:800 14px/1 var(--p-font-head);text-transform:lowercase;color:var(--p-text)}
+.saved-screen>.brand .brand-mark{width:26px;height:26px;margin:0}
+.saved-screen .saved-title{display:flex;align-items:flex-start;gap:8px;margin:0;font:800 40px/.95 var(--p-font-head);letter-spacing:-.045em;color:var(--p-text)}
+.saved-count{position:relative;top:0;font:800 18px/1 var(--p-font-head);letter-spacing:0;color:var(--p-primary)}
+.saved-empty .saved-title{display:block}
+.saved-empty .saved-title span{color:var(--p-secondary-text)}
+
+/* вкладки */
+.saved-tabs{display:flex;margin-top:8px;overflow-x:auto;border-bottom:1px solid var(--p-outline);scrollbar-width:none}
+.saved-tabs::-webkit-scrollbar{display:none}
+.saved-tab{flex:none;margin:0 20px -2px 0;padding:12px 0 10px;border:0;border-bottom:3px solid transparent;background:none;font:400 14px/1 var(--p-font-body);color:var(--p-muted);cursor:pointer}
+.saved-tab:last-child{margin-right:0}
+.saved-tab[aria-selected="true"]{border-bottom-color:var(--p-primary);font-weight:700;color:var(--p-text)}
+
+/* билеты */
+.saved-list{display:flex;flex-direction:column;gap:10px;padding:18px 0 0}
+.saved-item[hidden]{display:none}
+.saved-item{display:block}
+.saved-ticket{position:relative;display:grid;grid-template-columns:1fr 76px;height:104px;background:var(--p-surface);-webkit-mask:radial-gradient(circle 8px at calc(100% - 76px) 0,transparent 8px,#000 8.5px) top/100% 51% no-repeat,radial-gradient(circle 8px at calc(100% - 76px) 100%,transparent 8px,#000 8.5px) bottom/100% 51% no-repeat;mask:radial-gradient(circle 8px at calc(100% - 76px) 0,transparent 8px,#000 8.5px) top/100% 51% no-repeat,radial-gradient(circle 8px at calc(100% - 76px) 100%,transparent 8px,#000 8.5px) bottom/100% 51% no-repeat}
+.saved-main{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:8px;min-width:0;padding:16px 14px 16px 18px;border:0;background:none;color:var(--p-text);text-align:left;cursor:pointer;font:inherit}
+.saved-kicker{font:700 10px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-primary)}
+.saved-main strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font:800 17px/1.1 var(--p-font-head);letter-spacing:0;color:var(--p-text);overflow-wrap:anywhere}
+.saved-main small{display:none}
+.saved-stub{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-left:1.5px dashed var(--p-outline)}
+.saved-stub b{font:800 30px/1 var(--p-font-head);letter-spacing:0;color:var(--p-primary)}
+.saved-stub>span{font:700 10px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-text)}
+.saved-stub.is-undated>span{padding:0 4px;text-align:center;line-height:12px;color:var(--p-muted)}
+.saved-stub.is-soon b,.saved-stub.is-soon>span{color:var(--p-warning)}
+.saved-heart-btn{display:grid;place-items:center;width:44px;height:28px;padding:0;border:0;border-radius:0;background:none;color:var(--p-primary);cursor:pointer}
+.saved-heart-btn svg{width:14px;height:14px}
+.saved-stub .saved-heart-btn{position:absolute;left:50%;bottom:0;transform:translateX(-50%)}
+
+/* закрытый приём */
+.saved-closed{position:relative;display:grid;grid-template-columns:1fr 76px;height:104px;border:1px dashed var(--p-outline)}
+.saved-closed .saved-kicker,.saved-closed .saved-main strong{color:var(--p-muted)}
+.saved-stamp{align-self:center;justify-self:center;transform:rotate(-12deg);padding:4px 6px;border:1.5px solid var(--p-muted);font:700 9px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+.saved-closed .saved-heart-btn{position:absolute;left:auto;top:auto;right:16px;bottom:0;color:var(--p-muted)}
+.saved-more{align-self:flex-start;margin:20px 0 0;padding:12px 0;font:400 14px/1 var(--p-font-body);color:var(--p-text);text-decoration:underline}
+
+/* пустое состояние */
+.saved-art{position:relative;height:280px;margin:40px -20px 0;color:var(--p-text)}
+.saved-art>*{position:absolute;display:block}
+.saved-art-dots{right:0;top:0;width:260px;height:280px;background-image:radial-gradient(circle,var(--p-primary) 1.8px,transparent 2.3px);background-size:10px 10px;-webkit-mask-image:linear-gradient(200deg,#000 10%,transparent 75%);mask-image:linear-gradient(200deg,#000 10%,transparent 75%)}
+.saved-art-cut{left:112px;top:30px;width:120px;height:170px;border:1.5px solid var(--p-text);clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%)}
+.saved-art-fill{left:100px;top:46px;width:120px;height:170px;background:var(--p-accent);clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%)}
+.saved-art svg{left:112px;top:30px}
+.saved-screen>.saved-empty-title{margin:20px 0 0;font:800 28px/1 var(--p-font-head);letter-spacing:-.03em;color:var(--p-text)}
+.saved-screen>.saved-empty-text{margin:12px 20px 0 0;font:400 15px/22px var(--p-font-body);color:var(--p-muted)}
+.saved-empty-action{display:flex;align-items:center;justify-content:space-between;height:56px;margin:auto 0 0;padding:0 20px;border-radius:0 24px 0 0;background:var(--p-primary);color:var(--p-on-primary);font:700 15px/1 var(--p-font-body);text-decoration:none}
+.saved-empty-action:focus-visible{outline:2px solid var(--p-text);outline-offset:2px}
+.saved-empty-text+.saved-empty-action{margin-top:auto}
+.saved-empty{padding-bottom:0}
+/* polish */
+.saved-ticket,.saved-closed{height:auto;min-height:112px}
+.saved-main{justify-content:center}
+.saved-kicker{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;line-height:1.2}
+.saved-stub{padding:10px 0 30px}
+.saved-stub.is-undated>span{font-size:11px}
+.saved-main:hover strong{text-decoration:underline;text-underline-offset:3px}
+.saved-main:active{background:var(--p-primary-container)}
+.saved-main:focus-visible,.saved-heart-btn:focus-visible,.saved-tab:focus-visible{outline:2px solid var(--p-primary);outline-offset:-2px}
+.saved-heart-btn{transition:transform .15s}
+.saved-heart-btn:hover{transform:scale(1.15)}
+.saved-stub .saved-heart-btn:hover{transform:translateX(-50%) scale(1.15)}
+.saved-heart-btn:active{opacity:.6}
+.saved-tab:hover{color:var(--p-text)}
+.saved-closed .saved-main{padding-right:8px}
+.saved-closed .saved-stamp{margin-bottom:12px}
+.saved-more{padding-bottom:20px}
+.saved-empty-action{border-radius:0;border-top-left-radius:var(--p-leaf);margin-bottom:8px}
+.saved-empty-action:hover{filter:brightness(1.08)}
+.saved-empty-action:active{transform:translateY(1px)}
+.saved-empty{min-height:calc(100dvh - var(--nav-height,88px) - 16px)}
+.saved-art{overflow:hidden}
+/* круглогодично не должно вылезать за корешок билета */
+.saved-stub.is-undated>span{padding:0 3px;font-size:10px;line-height:12px;letter-spacing:.02em;text-transform:none;font-weight:700;max-width:100%;overflow-wrap:normal;word-break:normal}

@@ -1,0 +1,275 @@
+/* Мини-игры: хаб, «Слово дня», «Миф или правда». Тот же язык «Печать и чертёж»: квадратные углы, срез у акцентов, пунктир. */
+@keyframes wd-pop{0%{transform:scale(.86)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes wd-flip{0%{transform:rotateX(0);background:var(--p-surface);border-color:var(--p-text);color:var(--p-text)}49%{transform:rotateX(90deg);background:var(--p-surface);border-color:var(--p-text);color:var(--p-text)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+@keyframes wd-hop{0%,100%{transform:translateY(0)}45%{transform:translateY(-14px)}}
+@keyframes wd-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}
+@keyframes my-in{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes my-stamp{0%{opacity:0;transform:scale(2.3) rotate(-16deg)}60%{opacity:1;transform:scale(.93) rotate(-5deg)}100%{opacity:1;transform:scale(1) rotate(-5deg)}}
+@keyframes art-pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+
+/* ── Хаб ── */
+.games-hub{display:flex;flex:1;flex-direction:column;padding-top:10px}
+.games-hub>.brand{display:flex;align-items:center;gap:6px;height:26px;margin:0;font:800 14px/1 var(--p-font-head);letter-spacing:0;text-transform:lowercase}
+.games-hub>.brand .brand-mark{width:26px;height:26px;margin:0}
+.games-hub>h1{margin:22px 0 0}
+.games-sub{margin:12px 0 0;font:400 15px/22px var(--p-font-body);color:var(--p-muted)}
+.games-today{display:flex;align-items:center;gap:14px;margin-top:22px;padding:14px 16px;border:1px solid var(--p-divider);border-radius:0 18px 0 0;background:var(--p-surface)}
+.games-today strong{margin-left:auto;font:800 18px/1 var(--p-font-head);letter-spacing:-.02em}
+.games-ruler{display:flex;gap:6px;width:72px}
+.games-ruler i{flex:1;height:6px;background:var(--p-divider);transition:background-color .4s var(--m-ease)}
+.games-ruler i.on{background:var(--p-accent)}
+.games-list{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.game-card{--gc:var(--p-accent);position:relative;display:grid;grid-template-columns:84px minmax(0,1fr) 20px;align-items:center;gap:16px;width:100%;min-height:164px;padding:18px 12px 18px 20px;border:1px solid var(--p-divider);border-radius:0 28px 0 0;background:var(--p-surface);box-shadow:inset 4px 0 0 var(--gc);color:var(--p-text);text-align:left;font:inherit;cursor:pointer;transition:transform 200ms var(--m-ease),border-color 150ms var(--m-ease),background-color 150ms var(--m-ease)}
+.game-card.g-myths{--gc:var(--p-primary)}
+@media (hover:hover) and (pointer:fine){.game-card:hover{transform:translateY(-3px);border-color:var(--gc)}.game-card:hover .game-chev{transform:translateX(4px);color:var(--gc)}}
+.game-card:active{transform:scale(.985);transition-duration:90ms}
+.game-card:focus-visible{outline:2px solid var(--p-primary);outline-offset:3px}
+.game-art{display:block;width:84px;height:84px;background:color-mix(in srgb,var(--gc) 12%,transparent)}
+.game-art svg{display:block;width:100%;height:100%;overflow:visible}
+.a-ok{fill:var(--p-accent)}.a-mid{fill:var(--p-primary)}.a-off{fill:var(--p-divider)}
+.a-line{fill:var(--p-surface);stroke:var(--p-outline);stroke-width:1.5}
+.a-x{fill:none;stroke:var(--p-warning);stroke-width:4.5;stroke-linecap:round}
+.a-v{fill:none;stroke:var(--p-on-accent);stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+.game-art rect,.game-art g{transform-box:fill-box;transform-origin:center}
+.game-copy{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.game-copy strong{font:800 22px/1.05 var(--p-font-head);letter-spacing:-.03em}
+.game-copy>span:not(.game-chips){font:400 13.5px/1.35 var(--p-font-body);color:var(--p-muted)}
+.game-chips{display:flex;flex-wrap:wrap;gap:6px}
+.game-chip{display:inline-flex;align-items:center;height:26px;padding:0 10px;border:1px solid var(--p-outline);font:700 11px/1 var(--p-font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--p-muted)}
+.game-chip.is-new{border-color:var(--p-secondary-text);color:var(--p-secondary-text)}
+.game-chip.is-live{border-color:var(--p-primary);color:var(--p-primary)}
+.game-chip.is-done{border-color:var(--p-primary);background:var(--p-primary);color:var(--p-on-primary)}
+.game-chev{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;color:var(--p-muted);transition:transform 150ms var(--m-ease),color 150ms var(--m-ease)}
+.games-foot{margin:auto 0 0;padding-top:22px;font:400 13px/1.4 var(--p-font-body);color:var(--p-muted);text-align:center}
+/* вход хаба: карточки выезжают по очереди, плитки в иконке «зажигаются» */
+#app.is-entering>section.games-hub>.games-list:not(nav):not(.dialog){animation:none}
+#app.is-entering .game-card{animation:m-rise .62s var(--m-enter) both}
+#app.is-entering .game-card+.game-card{animation-delay:.14s}
+#app.is-entering .game-art rect{animation:art-pop .5s var(--m-enter) both}
+#app.is-entering .g-wordle .game-art rect:nth-child(1){animation-delay:.25s}#app.is-entering .g-wordle .game-art rect:nth-child(2){animation-delay:.3s}#app.is-entering .g-wordle .game-art rect:nth-child(3){animation-delay:.35s}
+#app.is-entering .g-wordle .game-art rect:nth-child(4){animation-delay:.4s}#app.is-entering .g-wordle .game-art rect:nth-child(5){animation-delay:.45s}#app.is-entering .g-wordle .game-art rect:nth-child(6){animation-delay:.5s}
+#app.is-entering .g-wordle .game-art rect:nth-child(7){animation-delay:.55s}#app.is-entering .g-wordle .game-art rect:nth-child(8){animation-delay:.6s}#app.is-entering .g-wordle .game-art rect:nth-child(9){animation-delay:.65s}
+#app.is-entering .g-myths .game-art g{animation:art-pop .55s var(--m-enter) .4s both}
+#app.is-entering .g-myths .game-art g+g{animation-delay:.55s}
+
+/* ── Общее для игровых экранов ── */
+#app:has(>.game-screen){padding-bottom:20px}
+.game-screen{display:flex;flex:1;flex-direction:column;padding-top:6px}
+.game-top{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+.game-back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 10px;border:1px solid var(--p-outline);border-radius:0 14px 0 0;background:transparent;color:var(--p-text);font:600 14px/1 var(--p-font-body);cursor:pointer;transition:border-color 150ms var(--m-ease),color 150ms var(--m-ease)}
+.game-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;transition:transform 150ms var(--m-ease)}
+@media (hover:hover) and (pointer:fine){.game-back:hover{border-color:var(--p-primary);color:var(--p-primary)}.game-back:hover svg{transform:translateX(-3px)}}
+/* серия дней: плашка с огоньком */
+.game-streak{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 13px 0 10px;border:1px solid var(--p-divider);border-radius:0 14px 0 0;background:transparent;color:var(--p-muted)}
+.game-streak small{font:700 11px/1 var(--p-font-body);letter-spacing:.06em;text-transform:uppercase}
+.game-streak b{font:800 18px/1 var(--p-font-head);letter-spacing:-.03em}
+.streak-flame{width:18px;height:18px;flex:none;fill:currentColor;opacity:.55}
+.game-streak.is-on{border-color:var(--p-warning);background:color-mix(in srgb,var(--p-warning) 11%,transparent);color:var(--p-warning)}
+.game-streak.is-on .streak-flame{opacity:1;transform-origin:50% 90%;animation:flame 2.4s ease-in-out infinite}
+@keyframes flame{0%,100%{transform:scale(1) rotate(0)}30%{transform:scale(1.08,1.14) rotate(-3deg)}60%{transform:scale(.96,1.04) rotate(2deg)}}
+.game-title{margin:12px 0 0;font-size:34px}
+.game-sub{margin:10px 0 0;font:400 14px/1.3 var(--p-font-body);color:var(--p-muted)}
+.game-sub b{color:var(--p-text);font-weight:700}
+.game-note{min-height:22px;margin:10px 0 0;font:700 13px/22px var(--p-font-body);color:var(--p-primary);text-align:center}
+.game-screen .p-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;transition:transform 150ms var(--m-ease)}
+@media (hover:hover) and (pointer:fine){.game-screen .p-btn:hover svg{transform:translateX(4px)}}
+.game-link{align-self:flex-start;min-height:44px;padding:0;border:0;background:none;color:var(--p-primary);font:700 14px/1 var(--p-font-body);cursor:pointer}
+.game-link:hover{text-decoration:underline}
+
+/* ── «Слово дня» ── */
+/* подсказка и расшифровка цветов — сразу под заголовком */
+.wd-clue{position:relative;display:flex;flex-direction:column;gap:6px;margin-top:14px;padding:14px 16px 14px 18px;border:1px solid var(--p-divider);border-left:4px solid var(--p-accent);border-radius:0 20px 0 0;background:var(--p-surface)}
+.wd-clue p{margin:0;font:800 19px/1.2 var(--p-font-head);letter-spacing:-.025em;color:var(--p-text)}
+.wd-meta{font:600 12px/1 var(--p-font-body);letter-spacing:.04em;color:var(--p-muted)}
+.wd-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 0 0;padding:0;list-style:none;font:400 12.5px/1 var(--p-font-body);color:var(--p-muted)}
+.wd-legend li{display:flex;align-items:center;gap:7px}
+.wd-legend i{display:block;width:16px;height:16px}
+.wd-legend i.is-correct{background:var(--p-accent)}
+.wd-legend i.is-present{background:var(--p-primary)}
+.wd-legend i.is-absent{background:var(--p-divider)}
+.wd-board{display:grid;gap:8px;justify-content:center;margin:20px auto 0;perspective:700px}
+.wd-row{display:grid;grid-template-columns:repeat(var(--n),56px);gap:8px;justify-content:center}
+.wd-tile{display:flex;align-items:center;justify-content:center;height:56px;border:1.5px solid var(--p-divider);background:var(--p-surface);font:800 26px/1 var(--p-font-head);color:var(--p-text);transition:border-color 120ms var(--m-ease)}
+.wd-tile.is-filled{border-color:var(--p-text)}
+.wd-tile.is-pop{animation:wd-pop .16s var(--m-enter)}
+.wd-tile.is-correct{border-color:var(--p-accent);background:var(--p-accent);color:var(--p-on-accent)}
+.wd-tile.is-present{border-color:var(--p-primary);background:var(--p-primary);color:var(--p-on-primary)}
+.wd-tile.is-absent{border-color:var(--p-divider);background:var(--p-divider);color:var(--p-muted)}
+.wd-row.is-shake{animation:wd-shake .42s}
+.wd-row.is-reveal .wd-tile{animation:wd-flip .62s var(--m-enter) both;animation-delay:calc(var(--i) * .3s)}
+.wd-row.is-win.is-reveal .wd-tile{animation:wd-flip .62s var(--m-enter) both,wd-hop .55s var(--m-enter) both;animation-delay:calc(var(--i) * .3s),calc(var(--n) * .3s + .5s + var(--i) * .08s)}
+@media (max-height:900px){.wd-row{grid-template-columns:repeat(var(--n),48px);gap:6px}.wd-board{gap:6px;margin-top:18px}.wd-tile{height:48px;font-size:22px}.wd-key{height:44px}.wd-kb{gap:6px;padding-top:14px}}
+.wd-kb{display:grid;gap:8px;margin-top:auto;padding-top:20px}
+.wd-kb-row{display:flex;justify-content:center;gap:5px}
+.wd-key{flex:1;min-width:0;height:48px;padding:0;border:1px solid var(--p-outline);border-radius:0;background:var(--p-surface);color:var(--p-text);font:700 15px/1 var(--p-font-body);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 90ms var(--m-ease),background-color 150ms var(--m-ease),border-color 150ms var(--m-ease)}
+.wd-key.is-wide{flex:1.7;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.wd-key svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8}
+.wd-key:active{transform:scale(.9)}
+@media (hover:hover) and (pointer:fine){.wd-key:hover{border-color:var(--p-primary)}}
+.wd-key.is-correct{border-color:var(--p-accent);background:var(--p-accent);color:var(--p-on-accent)}
+.wd-key.is-present{border-color:var(--p-primary);background:var(--p-primary);color:var(--p-on-primary)}
+.wd-key.is-absent{border-color:var(--p-divider);background:var(--p-divider);color:var(--p-muted)}
+.wd-end{display:flex;flex-direction:column;gap:12px;margin-top:20px;padding:20px 18px 18px;border:1px solid var(--p-divider);border-radius:0 28px 0 0;background:var(--p-surface)}
+.wd-end.is-won{border-color:var(--p-accent)}.wd-end.is-lost{border-color:var(--p-warning)}
+.wd-end.is-late{animation:m-rise .6s var(--m-enter) 2.2s both}
+.wd-word{margin:0;font:800 44px/1 var(--p-font-head);letter-spacing:-.04em;color:var(--p-text)}
+.wd-hint{margin:0;font:400 15px/22px var(--p-font-body);color:var(--p-muted)}
+.wd-stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--p-divider)}
+.wd-stats>div{padding:12px 0 10px;text-align:center}
+.wd-stats>div+div{border-left:1px solid var(--p-divider)}
+.wd-stats b{display:block;font:800 26px/1 var(--p-font-head);letter-spacing:-.03em}
+.wd-stats span{display:block;margin-top:6px;font:700 10px/1 var(--p-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+.wd-end .game-note{margin:0}
+.wd-end .game-note:empty{display:none}
+.wd-cta{display:flex}
+.wd-cta .p-btn{flex:1;justify-content:space-between;height:54px;border-radius:0 20px 0 0}
+
+/* ── «Миф или правда» ── */
+.my-ruler{display:flex;gap:6px;margin-top:16px}
+.my-ruler i{flex:1;height:6px;background:var(--p-divider);transition:background-color .35s var(--m-ease)}
+.my-ruler i.is-now{background:var(--p-primary)}.my-ruler i.is-right{background:var(--p-accent)}.my-ruler i.is-wrong{background:var(--p-error)}
+.my-card{position:relative;margin-top:18px;padding:22px 20px 28px;border:1px solid var(--p-divider);border-radius:0 28px 0 0;background:var(--p-surface);overflow:hidden;isolation:isolate}
+.my-card::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--p-divider) 1px,transparent 1px),linear-gradient(90deg,var(--p-divider) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(110% 80% at 100% 0,#000 0,transparent 65%);mask-image:radial-gradient(110% 80% at 100% 0,#000 0,transparent 65%);opacity:.8}
+.my-card.is-slide{animation:my-in .5s var(--m-enter) both}
+.my-num{position:absolute;right:16px;top:8px;font:800 84px/1 var(--p-font-head);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--p-primary) 55%,transparent)}
+.my-card .p-kicker{display:block}
+.my-statement{margin:58px 0 0;font:800 26px/1.14 var(--p-font-head);letter-spacing:-.03em;color:var(--p-text);overflow-wrap:break-word;hyphens:auto}
+.my-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.my-btn{display:flex;align-items:center;justify-content:center;gap:10px;height:76px;border:1.5px solid var(--p-outline);border-radius:0 22px 0 0;background:transparent;color:var(--p-text);font:800 20px/1 var(--p-font-head);letter-spacing:-.02em;cursor:pointer;transition:transform 120ms var(--m-ease),border-color 150ms var(--m-ease),background-color 150ms var(--m-ease)}
+.my-btn::before{font:800 18px/1 var(--p-font-body)}
+.my-btn.is-true::before{content:"✓";color:var(--p-secondary-text)}
+.my-btn.is-false::before{content:"✕";color:var(--p-error)}
+@media (hover:hover) and (pointer:fine){
+  .my-btn.is-true:hover{transform:translateY(-2px);border-color:var(--p-accent);background:color-mix(in srgb,var(--p-accent) 14%,transparent)}
+  .my-btn.is-false:hover{transform:translateY(-2px);border-color:var(--p-error);background:color-mix(in srgb,var(--p-error) 10%,transparent)}
+}
+.my-btn{transition:transform 120ms var(--m-ease)}
+/* Плавно красим кнопки только при ответе; на новой карточке цвета прошлого ответа не должны «догорать». */
+.my-btn.is-ok,.my-btn.is-bad,.my-btn.is-key,.my-btn.is-dim{transition:transform 120ms var(--m-ease),border-color .3s var(--m-ease),background-color .3s var(--m-ease),opacity .3s var(--m-ease)}
+.my-btn:disabled{cursor:default;color:var(--p-text);opacity:1}
+.my-btn.is-ok{border-color:var(--p-accent);background:color-mix(in srgb,var(--p-accent) 24%,transparent)}
+.my-btn.is-bad{border-color:var(--p-error);background:color-mix(in srgb,var(--p-error) 14%,transparent)}
+.my-btn.is-key{border-color:var(--p-accent);box-shadow:inset 0 0 0 1px var(--p-accent)}
+.my-btn.is-dim{opacity:.42}
+.my-btn:not(:disabled):active{transform:scale(.97);transition-duration:90ms}
+.my-result.is-stamp+.my-next{animation:m-rise .5s var(--m-enter) .3s both}
+.my-btn:focus-visible,.game-back:focus-visible,.wd-key:focus-visible,.game-link:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+.my-result{--rc:var(--p-accent);margin-top:14px;padding:18px 18px 16px;border-left:4px solid var(--rc);background:color-mix(in srgb,var(--rc) 10%,var(--p-surface))}
+.my-result.is-wrong{--rc:var(--p-error)}
+.my-verdict{display:flex;align-items:center;gap:16px}
+.my-verdict strong{font:800 22px/1.05 var(--p-font-head);letter-spacing:-.03em}
+.my-result p{margin:12px 0 0;font:400 15px/22px var(--p-font-body);color:var(--p-text)}
+.my-result.is-stamp .p-stamp{animation:my-stamp .46s var(--m-enter) both}
+.my-result.is-stamp .my-verdict strong,.my-result.is-stamp p{animation:m-rise .5s var(--m-enter) .18s both}
+.my-result.is-stamp{animation:m-fade .25s var(--m-ease) both}
+.my-next{width:100%;margin-top:14px;height:56px;justify-content:space-between;border-radius:0 24px 0 0}
+.my-score{display:flex;align-items:flex-end;gap:18px;margin-top:22px}
+.my-score b{font:800 96px/.8 var(--p-font-head);letter-spacing:-.06em;color:var(--p-primary)}
+.my-score small{margin-left:4px;font-size:32px;letter-spacing:0;color:var(--p-muted)}
+.my-score p{margin:0 0 4px;max-width:190px;font:800 17px/1.2 var(--p-font-head);letter-spacing:-.02em}
+.my-review{margin:22px 0 0;padding:0;list-style:none;border-top:1px solid var(--p-text)}
+.my-row{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--p-divider);font:400 14px/1.35 var(--p-font-body)}
+.my-row i{font:800 16px/1.2 var(--p-font-body);font-style:normal;color:var(--p-secondary-text)}
+.my-row.is-wrong i{color:var(--p-error)}
+.my-row b{font:700 11px/1.5 var(--p-font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--p-muted)}
+#app.is-entering .my-row{animation:m-rise .5s var(--m-enter) calc(.12s + var(--i) * 70ms) both}
+.my-cta{display:flex;margin:22px 0 0}
+.my-cta .p-btn{flex:1;justify-content:space-between;height:54px;border-radius:0 20px 0 0}
+
+/* ── Вход в игры из «Пути»: заметный баннер под основными кнопками ── */
+.path-games{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;width:100%;margin-top:12px;padding:14px 14px 14px 18px;border:1px solid var(--p-primary);border-radius:0 22px 0 0;background:linear-gradient(120deg,var(--p-primary-container),color-mix(in srgb,var(--p-primary-container) 35%,var(--p-surface)));box-shadow:inset 4px 0 0 var(--p-primary);color:var(--p-text);text-align:left;font:inherit;cursor:pointer;overflow:hidden;transition:transform 200ms var(--m-ease),border-color 150ms var(--m-ease)}
+.pg-art{display:grid;grid-template-columns:repeat(3,15px);gap:4px}
+.pg-art i{display:block;width:15px;height:15px;background:var(--p-divider)}
+.pg-art i.ok{background:var(--p-accent)}.pg-art i.mid{background:var(--p-primary)}
+.pg-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+.pg-copy strong{font:800 18px/1 var(--p-font-head);letter-spacing:-.03em;color:var(--p-text)}
+.pg-copy small{font:400 12.5px/1.25 var(--p-font-body);color:var(--p-muted)}
+.pg-go{display:grid;place-items:center;width:38px;height:38px;border-radius:0 13px 0 0;background:var(--p-primary);color:var(--p-on-primary);transition:transform 150ms var(--m-ease)}
+.pg-go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+@media (hover:hover) and (pointer:fine){.path-games:hover{transform:translateY(-2px)}.path-games:hover .pg-go{transform:translateX(3px)}}
+.path-games:active{transform:scale(.985);transition-duration:90ms}
+.path-games:focus-visible{outline:2px solid var(--p-primary);outline-offset:3px}
+/* плитки «переворачиваются» по очереди: один раз при входе и ещё раз при наведении */
+#app.is-entering .pg-art i{animation:art-pop .5s var(--m-enter) both}
+#app.is-entering .pg-art i:nth-child(1){animation-delay:.5s}#app.is-entering .pg-art i:nth-child(2){animation-delay:.58s}#app.is-entering .pg-art i:nth-child(3){animation-delay:.66s}
+#app.is-entering .pg-art i:nth-child(4){animation-delay:.74s}#app.is-entering .pg-art i:nth-child(5){animation-delay:.82s}#app.is-entering .pg-art i:nth-child(6){animation-delay:.9s}
+@media (hover:hover) and (pointer:fine){.path-games:hover .pg-art i{animation:art-pop .45s var(--m-enter) both}.path-games:hover .pg-art i:nth-child(2){animation-delay:.05s}.path-games:hover .pg-art i:nth-child(3){animation-delay:.1s}.path-games:hover .pg-art i:nth-child(4){animation-delay:.15s}.path-games:hover .pg-art i:nth-child(5){animation-delay:.2s}.path-games:hover .pg-art i:nth-child(6){animation-delay:.25s}}
+.path-links .path-games{flex-basis:100%}
+/* кнопки на стартовом экране: одной высоты, одинаковый срез угла и ритм */
+.path-home[data-start] .path-actions .primary{height:56px}
+.path-home[data-start] .path-link{height:56px;margin-top:12px;border-radius:0 20px 0 0;font-size:15px}
+.path-home[data-start] .path-games{margin-top:12px}
+
+.path-home[data-start]{padding-bottom:calc(var(--nav-height,88px) + 28px)}
+
+/* ── «Как играть»: сворачиваемая памятка под заголовком каждой игры ── */
+.game-how{margin-top:12px;border:1px dashed var(--p-outline);border-radius:0 16px 0 0;background:transparent;transition:border-color .25s var(--m-ease),background-color .25s var(--m-ease)}
+.game-how.is-open{border-style:solid;border-color:var(--p-primary);background:color-mix(in srgb,var(--p-primary-container) 55%,transparent)}
+.game-how__bar{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:0 14px 0 12px;border:0;background:none;color:var(--p-text);font:700 14px/1 var(--p-font-body);text-align:left;cursor:pointer}
+.game-how__bar>span:nth-child(2){flex:1}
+.game-how__icon{display:grid;place-items:center;width:22px;height:22px;background:var(--p-primary);color:var(--p-on-primary);font:800 13px/1 var(--p-font-head);border-radius:0 8px 0 0}
+.game-how__bar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;color:var(--p-muted);transition:transform .3s var(--m-enter)}
+.game-how.is-open .game-how__bar svg{transform:rotate(180deg)}
+.game-how__bar:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+.game-how__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s var(--m-enter)}
+.game-how.is-open .game-how__body{grid-template-rows:1fr}
+.game-how__body>div{min-height:0;overflow:hidden}
+.game-how ol{margin:0;padding:2px 16px 14px 38px;counter-reset:step;list-style:none}
+.game-how li{position:relative;margin-top:8px;font:400 14px/1.4 var(--p-font-body);color:var(--p-text);opacity:0;transform:translateY(-4px);transition:opacity .3s var(--m-ease),transform .3s var(--m-ease)}
+.game-how.is-open li{opacity:1;transform:none}
+.game-how.is-open li:nth-child(2){transition-delay:.06s}.game-how.is-open li:nth-child(3){transition-delay:.12s}.game-how.is-open li:nth-child(4){transition-delay:.18s}
+.game-how li::before{counter-increment:step;content:counter(step);position:absolute;left:-26px;top:1px;display:grid;place-items:center;width:18px;height:18px;border:1px solid var(--p-primary);color:var(--p-primary);font:800 11px/1 var(--p-font-head)}
+
+/* ── «Резюме-детектор» ── */
+.game-card.g-resume{--gc:var(--p-warning)}
+.a-hl{fill:var(--p-error);opacity:.4}
+.a-lens{fill:var(--p-surface);fill-opacity:.7;stroke:var(--p-primary);stroke-width:4}
+.a-handle{fill:none;stroke:var(--p-primary);stroke-width:5;stroke-linecap:round}
+.rs-sheet{margin-top:16px;padding:18px 14px 10px;border:1px solid var(--p-divider);border-radius:0 24px 0 0;background:var(--p-surface)}
+.rs-head{display:flex;flex-direction:column;gap:4px;padding:0 4px 12px;border-bottom:1px solid var(--p-text)}
+.rs-head b{font:800 20px/1.1 var(--p-font-head);letter-spacing:-.03em}
+.rs-head span{font:400 13px/1.2 var(--p-font-body);color:var(--p-muted)}
+.rs-h{margin:16px 4px 4px;font:700 10.5px/1 var(--p-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--p-secondary-text)}
+.rs-h::after{content:none}
+.rs-item{display:block}
+.rs-line{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start;width:100%;margin:2px 0;padding:10px 8px 10px 8px;border:0;border-radius:0 12px 0 0;background:transparent;box-shadow:inset 3px 0 0 transparent;color:var(--p-text);text-align:left;font:400 14.5px/1.4 var(--p-font-body);cursor:pointer;transition:background-color .25s var(--m-ease),box-shadow .25s var(--m-ease),transform 120ms var(--m-ease)}
+.rs-line:disabled{cursor:default;color:var(--p-text);opacity:1}
+@media (hover:hover) and (pointer:fine){.rs-line:not(:disabled):hover{background:color-mix(in srgb,var(--p-primary-container) 55%,transparent)}}
+.rs-line:not(:disabled):active{transform:scale(.99);transition-duration:90ms}
+.rs-line:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+.rs-box{display:grid;place-items:center;width:20px;height:20px;margin-top:1px;border:1.5px solid var(--p-outline);background:var(--p-surface);font:800 12px/1 var(--p-font-body);font-style:normal;color:transparent;transition:background-color .25s var(--m-ease),border-color .25s var(--m-ease),color .25s var(--m-ease)}
+.rs-line.is-picked{background:color-mix(in srgb,var(--p-primary) 10%,transparent);box-shadow:inset 3px 0 0 var(--p-primary)}
+.rs-line.is-picked .rs-box{border-color:var(--p-primary);background:var(--p-primary)}
+.rs-line.is-picked .rs-box::after{content:"";width:6px;height:10px;margin-top:-2px;border:solid var(--p-on-primary);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.rs-line.is-hit{background:color-mix(in srgb,var(--p-accent) 16%,transparent);box-shadow:inset 3px 0 0 var(--p-accent)}
+.rs-line.is-hit .rs-box{border-color:var(--p-accent);background:var(--p-accent);color:var(--p-on-accent)}
+.rs-line.is-miss{background:color-mix(in srgb,var(--p-error) 10%,transparent);box-shadow:inset 3px 0 0 var(--p-error)}
+.rs-line.is-miss .rs-box{border-color:var(--p-error);color:var(--p-error)}
+.rs-line.is-false{background:color-mix(in srgb,var(--p-warning) 12%,transparent);box-shadow:inset 3px 0 0 var(--p-warning)}
+.rs-line.is-false .rs-box{border-color:var(--p-warning);color:var(--p-warning)}
+.rs-why{margin:0 0 8px 42px;padding:10px 12px;border-left:2px solid var(--p-divider);font:400 13.5px/1.45 var(--p-font-body);color:var(--p-muted);animation:m-rise .45s var(--m-enter) both}
+.rs-why b{color:var(--p-text)}
+.rs-fix{display:block;margin-top:6px;color:var(--p-secondary-text);font-weight:600}
+.rs-bar{position:sticky;bottom:12px;display:flex;align-items:center;gap:14px;margin-top:16px;padding:10px 10px 10px 16px;border:1px solid var(--p-divider);border-radius:0 18px 0 0;background:var(--p-surface);box-shadow:0 14px 24px -18px rgba(33,28,53,.55)}
+.rs-count{flex:1;font:700 13px/1 var(--p-font-body);color:var(--p-muted)}
+.rs-check{min-width:150px;height:48px;justify-content:space-between;border-radius:0 16px 0 0}
+.rs-score{display:flex;align-items:center;gap:18px;margin-top:18px;padding:18px 18px;border:1px solid var(--p-divider);border-left:4px solid var(--p-primary);background:var(--p-surface)}
+.rs-score b{font:800 64px/.85 var(--p-font-head);letter-spacing:-.06em;color:var(--p-primary)}
+.rs-score small{margin-left:3px;font-size:24px;letter-spacing:0;color:var(--p-muted)}
+.rs-score p{margin:0;font:800 16px/1.2 var(--p-font-head);letter-spacing:-.02em}
+.rs-extra{display:block;margin-top:6px;font:700 12px/1 var(--p-font-body);letter-spacing:.04em;color:var(--p-warning)}
+.rs-score.is-stamp{animation:m-rise .5s var(--m-enter) both}
+#app.is-entering .rs-line{animation:m-rise .5s var(--m-enter) both}
+#app.is-entering .rs-item:nth-child(3) .rs-line{animation-delay:.1s}#app.is-entering .rs-item:nth-child(5) .rs-line{animation-delay:.16s}#app.is-entering .rs-item:nth-child(7) .rs-line{animation-delay:.22s}
+.games-ruler{width:90px}
+
+/* Клавиатура Слова дня: крупнее, «Ввод» выделен цветом и оживает, когда слово набрано целиком */
+.wd-kb{gap:9px}
+.wd-kb-row{gap:6px}
+.wd-key{height:54px;font-size:17px;border-radius:0 10px 0 0}
+.wd-key.is-wide{flex:1.9}
+.wd-key.is-enter{gap:6px;border-color:var(--p-accent);background:color-mix(in srgb,var(--p-accent) 30%,var(--p-surface));color:var(--p-text);font-size:12px;opacity:.75}
+.wd-key.is-enter svg{width:16px;height:16px}
+.wd-key.is-enter.is-ready{background:var(--p-accent);color:var(--p-on-accent);opacity:1;box-shadow:0 3px 0 color-mix(in srgb,var(--p-accent) 55%,#000)}
+.wd-key.is-enter.is-ready:active{box-shadow:none;transform:translateY(2px)}
+@media (max-height:900px){.wd-key{height:48px}}

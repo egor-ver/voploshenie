@@ -1,0 +1,159 @@
+/* print: test — «Печать и чертёж». Перенос из docs/design/print/source.html: 12 «Профтест выбор», 12b «Профтест шкала».
+   Холст 390×844: шапка, номер 72px, растровая линейка, заголовок 28px, строки А/Б/В/Г, шкала 1–5 с «листом», действия. */
+.quiz-screen{display:flex;flex-direction:column;height:100dvh;min-height:0;color:var(--p-text)}
+.quiz-screen button{border-radius:0;font-family:var(--p-font-body)}
+
+/* Шапка */
+.quiz-screen .quiz-header{display:flex;align-items:center;justify-content:space-between;flex:none;padding:20px 0 0;min-height:0}
+.quiz-screen .quiz-header strong{font:700 12px/1 var(--p-font-body);letter-spacing:.12em;color:var(--p-primary)}
+.quiz-screen .exit{min-height:44px;margin:-14px 0;padding:0 0 0 12px;border:0;background:none;color:var(--p-text);font:400 14px/1 var(--p-font-body);cursor:pointer}
+
+/* Прокручиваемая часть: поля -12px, чтобы «лист» выбранной клетки шкалы не обрезался */
+.quiz-screen .quiz-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;margin:0 -12px;padding:0 12px 16px}
+.quiz-screen .quiz-scroll::-webkit-scrollbar{display:none}
+
+/* Номер вопроса и линейка */
+.quiz-screen .progress-meta{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:26px 0 0}
+.quiz-screen .progress-meta>strong{font:800 72px/.8 var(--p-font-head);letter-spacing:-.05em;color:var(--p-primary)}
+.quiz-screen .progress-meta>span{min-width:0;padding-bottom:4px;text-align:right;font:700 13px/1 var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .progress-meta small{display:none}
+.quiz-screen .track{position:relative;height:18px;margin:16px 0 0;background:repeating-linear-gradient(90deg,var(--p-outline) 0 1.5px,transparent 1.5px 12.5px) bottom/100% 8px no-repeat}
+.quiz-screen .track span{position:absolute;left:0;bottom:0;display:block;height:18px;min-width:12.5px;background:repeating-linear-gradient(90deg,var(--p-primary) 0 3px,transparent 3px 12.5px)}
+
+/* Заголовок вопроса */
+.quiz-screen h1{margin:36px 0 0;font:800 28px/1.1 var(--p-font-head);letter-spacing:-.025em;color:var(--p-text);text-wrap:pretty;overflow-wrap:anywhere}
+.quiz-screen .question-statement{margin:12px 0 0;font:800 22px/1.2 var(--p-font-head);letter-spacing:-.02em;color:var(--p-text);text-wrap:pretty}
+.quiz-screen .prompt{margin:12px 0 0;font:400 14px/20px var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .answers{display:grid;gap:0;margin-top:26px}
+.quiz-screen .hint{margin:18px 0 0;font:400 13px/18px var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .error{margin:16px 0 0;color:var(--p-error);font:700 14px/20px var(--p-font-body)}
+.quiz-screen fieldset{min-width:0;margin:0;padding:0;border:0}
+.quiz-screen legend{padding:0;margin:0 0 12px;font:800 18px/22px var(--p-font-head);letter-spacing:-.02em;color:var(--p-text)}
+.quiz-screen .has-scale>fieldset+fieldset,.quiz-screen .has-profile>*+*{margin-top:28px}
+
+/* Варианты строками А/Б/В/Г */
+.quiz-screen .choice{position:relative;display:flex;align-items:center;margin:0;padding:0;border:0;border-radius:0;background:none;color:var(--p-text);cursor:pointer}
+.quiz-screen .choice-row{gap:0;display:grid;grid-template-columns:40px minmax(0,1fr) 20px;align-items:center;min-height:64px;padding:8px 16px;border-top:1px solid var(--p-outline);border-bottom:1px solid var(--p-outline);font:400 15px/1.3 var(--p-font-body);overflow-wrap:anywhere}
+.quiz-screen .choice-row+.choice-row{border-top:0}
+.quiz-screen .choice-row>.choice-letter{order:1;width:auto;margin:0;padding:0;font:800 18px/1 var(--p-font-head);color:var(--p-muted)}
+.quiz-screen .choice-row>span:last-child{order:2;min-width:0}
+.quiz-screen .choice-row input{order:3;appearance:none;box-sizing:border-box;justify-self:start;width:11px;height:11px;margin:0;border:1.5px solid var(--p-muted);border-radius:50%;background:none}
+.quiz-screen .choice-row:has(input:checked){background:var(--p-primary-container);outline:1.5px solid var(--p-primary);outline-offset:-1.5px;font-weight:700}
+.quiz-screen .choice-row:has(input:checked) .choice-letter{color:var(--p-primary)}
+.quiz-screen .choice-row input:checked{border-color:var(--p-primary);background:var(--p-primary)}
+.quiz-screen .choice:has(input:focus-visible){outline:2px solid var(--p-primary);outline-offset:2px}
+.quiz-screen .choice.is-disabled{opacity:.38;cursor:default}
+
+/* Шкала 1–5: ряд клеток в рамке, выбранная — «лист» со смещением */
+.quiz-screen .scale-choices{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:48px;border:0;border-top:1px solid var(--p-text);border-left:1px solid var(--p-text)}
+.quiz-screen .has-scale>fieldset .scale-choices{margin-top:16px}
+.quiz-screen .scale-choices .choice{justify-content:center;height:76px;min-height:76px;border-right:1px solid var(--p-text);border-bottom:1px solid var(--p-text);font:800 28px/1 var(--p-font-head);letter-spacing:0}
+.quiz-screen .scale-choices .choice input,.quiz-screen .rank-value .choice input{position:absolute;opacity:0;pointer-events:none}
+.quiz-screen .scale-choices .choice>span{position:relative;z-index:2}
+.quiz-screen .scale-choices .choice:has(input:checked){background:var(--p-primary);border-color:var(--p-primary);border-radius:0 18px 0 0}
+.quiz-screen .scale-choices .choice:has(input:checked)>span{color:var(--p-on-primary)}
+.quiz-screen .scale-dots{position:relative;height:21px;margin:14px 0 0;background-image:radial-gradient(circle,var(--p-outline) 1px,transparent 1.4px);background-size:7px 7px}
+.quiz-screen .scale-dots i{position:absolute;left:0;top:0;bottom:0;background-image:radial-gradient(circle,var(--p-primary) 1.7px,transparent 2.1px);background-size:7px 7px;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.25),#000);mask-image:linear-gradient(90deg,rgba(0,0,0,.25),#000)}
+.quiz-screen .scale-labels{display:flex;justify-content:space-between;gap:16px;margin-top:12px;font:400 13px/1 var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .scale-labels>span{flex:1;min-width:0}
+.quiz-screen .scale-labels>span:last-child{text-align:right}
+
+/* Поля ввода */
+.quiz-screen .field-label{display:grid;gap:8px;min-width:0;font:800 18px/22px var(--p-font-head);letter-spacing:-.02em;color:var(--p-text)}
+.quiz-screen .field{display:block;width:100%;min-height:52px;height:52px;padding:14px 16px;border:1px solid var(--p-outline);border-radius:0;background:var(--p-surface);color:var(--p-text);font:400 15px/22px var(--p-font-body);resize:none}
+.quiz-screen .answers>.field-label>textarea.field{height:132px}
+.quiz-screen .field:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+.quiz-screen .text-counter,.quiz-screen .choice-counter{margin:0;font:400 13px/18px var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .text-counter{justify-self:end;text-align:right}
+.quiz-screen .choice-counter{margin-bottom:12px}
+.quiz-screen .field-label.profile-other{margin-top:12px;font:400 15px/22px var(--p-font-body);letter-spacing:0}
+
+/* Ценности: строка на ценность, ранг — квадратные клетки */
+.quiz-screen .rank-value{display:grid;gap:8px;padding:16px 0;border-bottom:1px solid var(--p-outline);background:none}
+.quiz-screen .rank-value:first-of-type{border-top:1px solid var(--p-outline)}
+.quiz-screen .rank-value>strong{font:800 17px/22px var(--p-font-head);letter-spacing:-.02em;color:var(--p-text)}
+.quiz-screen .rank-value>p{margin:0;font:400 14px/20px var(--p-font-body);color:var(--p-muted)}
+.quiz-screen .rank-value>div{display:flex;gap:8px;margin-top:4px}
+.quiz-screen .rank-value .choice{justify-content:center;min-width:44px;min-height:44px;padding:0 14px;border:1px solid var(--p-text);font:700 15px/1 var(--p-font-body)}
+.quiz-screen .rank-value>.choice{justify-self:start;border-color:var(--p-outline);color:var(--p-muted);font-weight:400}
+.quiz-screen .rank-value .choice:has(input:checked){background:var(--p-primary);border-color:var(--p-primary);color:var(--p-on-primary);border-radius:0 14px 0 0}
+.quiz-screen .rank-value>.choice:has(input:checked){background:var(--p-primary-container);border-color:var(--p-primary);color:var(--p-text);border-radius:0;font-weight:700}
+
+/* «Три главных условия»: те же строки, справа квадрат-отметка */
+.quiz-screen .has-pick3>.choice{display:grid;grid-template-columns:minmax(0,1fr) 20px;gap:12px;min-height:64px;padding:8px 16px;border-bottom:1px solid var(--p-outline);font:400 15px/1.3 var(--p-font-body)}
+.quiz-screen .has-pick3>.choice:first-of-type{border-top:1px solid var(--p-outline)}
+.quiz-screen .has-pick3 input{appearance:none;order:2;justify-self:end;width:14px;height:14px;margin:0;border:1.5px solid var(--p-muted);background:none}
+.quiz-screen .has-pick3>.choice:has(input:checked){background:var(--p-primary-container);outline:1.5px solid var(--p-primary);outline-offset:-1.5px;font-weight:700}
+.quiz-screen .has-pick3 input:checked{border-color:var(--p-primary);background:var(--p-primary)}
+
+/* Действия: ← Назад | Далее → (главная кнопка — со срезом угла) */
+.quiz-screen .actions{flex:none;display:grid;grid-template-columns:116px minmax(0,1fr);gap:10px;margin:0;padding:16px 0 32px}
+.quiz-screen .actions button{display:flex;align-items:center;justify-content:center;width:100%;height:56px;padding:0 20px;border:1px solid var(--p-text);background:transparent;color:var(--p-text);font:400 15px/1 var(--p-font-body);cursor:pointer}
+.quiz-screen .actions .primary{margin:0;justify-content:space-between;gap:8px;border:0;border-radius:0 24px 0 0;background:var(--p-primary);color:var(--p-on-primary);font-weight:700}
+.quiz-screen .actions .primary>span{flex:1;text-align:left}
+.quiz-screen .actions svg{flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.quiz-screen .actions button:disabled{opacity:1;cursor:default;border-color:var(--p-divider);color:var(--p-muted)}
+.quiz-screen .actions .primary:disabled{background:var(--p-divider);color:var(--p-muted)}
+.quiz-screen .actions button:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+
+/* Диалог выхода */
+.quiz-screen .dialog{background:color-mix(in srgb,var(--p-text) 45%,transparent)}
+.quiz-screen .dialog section{display:grid;gap:12px;padding:24px;border:1px solid var(--p-text);border-radius:0;background:var(--p-surface);color:var(--p-text)}
+.quiz-screen .dialog h2{margin:0 0 4px;font:800 24px/26px var(--p-font-head);letter-spacing:-.045em}
+.quiz-screen .dialog button{height:52px;margin:0;border:1px solid var(--p-text);border-radius:0;background:transparent;color:var(--p-text);font:700 15px/1 var(--p-font-body);cursor:pointer}
+.quiz-screen .dialog button[data-action="cancel-exit"]{border:0;border-radius:0 24px 0 0;background:var(--p-primary);color:var(--p-on-primary)}
+
+/* Старт теста — в том же языке: крупный заголовок, согласие строкой, кнопка со смещённым контуром */
+.session-intro{display:flex;flex-direction:column;gap:16px;min-height:calc(100dvh - 104px);padding:0 0 8px;color:var(--p-text)}
+.session-intro>h1{margin:32px 0 0;font-size:30px;line-height:1;letter-spacing:-.05em;overflow-wrap:break-word}
+.session-intro>p{margin:0;font:400 15px/22px var(--p-font-body);color:var(--p-text)}
+.session-intro>.prompt{color:var(--p-muted)}
+.session-intro .consent-choice{display:grid;grid-template-columns:minmax(0,1fr) 16px;align-items:center;gap:12px;padding:16px;border-top:1px solid var(--p-outline);border-bottom:1px solid var(--p-outline);font:400 15px/22px var(--p-font-body);cursor:pointer}
+.session-intro .consent-choice input{appearance:none;order:2;width:16px;height:16px;margin:0;border:1.5px solid var(--p-muted);background:none}
+.session-intro .consent-choice input:checked{border-color:var(--p-primary);background:var(--p-primary)}
+.session-intro .consent-choice:has(input:checked){background:var(--p-primary-container)}
+.session-intro .p-cta{display:flex;flex:none;height:54px;margin:auto 0 0 0}
+.session-intro .p-cta .primary{margin:0;display:flex;align-items:center;justify-content:space-between;width:100%;height:54px;padding:0 20px;border:0;border-radius:0;background:var(--p-accent);color:var(--p-on-accent);font:700 16px/1 var(--p-font-body);cursor:pointer}
+.session-intro .p-cta .primary::after{content:"→"}
+.session-intro .p-cta .primary:disabled{background:var(--p-divider);color:var(--p-muted);opacity:1;cursor:default}
+.session-intro .p-cta:has(:disabled)::before{border-color:var(--p-divider)}
+.quiz-screen .has-profile .field-label>textarea.field{height:76px}
+
+/* Полировка: состояния, ритм, согласованные срезы углов */
+.quiz-screen .progress-meta>span{line-height:1.3;overflow-wrap:anywhere}
+.quiz-screen .quiz-scroll{padding-bottom:24px;-webkit-mask-image:linear-gradient(transparent,#000 10px,#000 calc(100% - 20px),transparent);mask-image:linear-gradient(transparent,#000 10px,#000 calc(100% - 20px),transparent)}
+.quiz-screen .choice-counter{line-height:20px}
+.quiz-screen .choice:has(input:disabled){pointer-events:none}
+@media (hover:hover){
+  .quiz-screen .choice-row:not(.is-disabled):not(:has(input:checked)):hover,.quiz-screen .has-pick3>.choice:not(.is-disabled):not(:has(input:checked)):hover{background:color-mix(in srgb,var(--p-primary-container) 55%,transparent)}
+  .quiz-screen .scale-choices .choice:not(:has(input:checked)):hover{background:var(--p-primary-container)}
+  .quiz-screen .rank-value .choice:not(.is-disabled):not(:has(input:checked)):hover{background:var(--p-primary-container)}
+  .quiz-screen .actions button:not(:disabled):hover,.quiz-screen .dialog button:hover{filter:brightness(.94)}
+  .quiz-screen .exit:hover{color:var(--p-primary)}
+}
+.quiz-screen .scale-choices .choice:has(input:focus-visible){outline-offset:-3px}
+.quiz-screen .rank-value .choice.is-disabled{border-color:var(--p-outline)}
+.quiz-screen .rank-value>div{flex-wrap:wrap}
+.quiz-screen .has-pick3>.choice,.quiz-screen .choice-row{transition:background-color .12s}
+.quiz-screen .choice-row input,.quiz-screen .has-pick3 input{flex:none}
+.quiz-screen .choice-row input:checked{box-shadow:inset 0 0 0 2px var(--p-bg)}
+.quiz-screen .has-pick3 input{box-sizing:border-box;width:16px;height:16px}
+.quiz-screen .has-pick3 input:checked{box-shadow:inset 0 0 0 2px var(--p-bg)}
+.quiz-screen .dialog section{border-radius:0 24px 0 0}
+.quiz-screen .dialog button[data-action="confirm-exit"]{border-color:var(--p-outline)}
+.quiz-screen .dialog button:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+
+/* Старт теста */
+.session-intro>.brand{display:flex;align-items:center;gap:6px;height:26px;margin:20px 0 0;font:800 14px/1 var(--p-font-head);letter-spacing:0}
+.session-intro>.brand .brand-mark{width:26px;height:26px;margin:0}
+.session-intro .p-cta .primary{border-radius:0 24px 0 0;height:56px}
+.session-intro .p-cta{height:56px}
+.session-intro .consent-choice input{box-sizing:border-box;flex:none}
+.session-intro .consent-choice input:checked{box-shadow:inset 0 0 0 2px var(--p-bg)}
+.session-intro .consent-choice:has(input:focus-visible){outline:2px solid var(--p-primary);outline-offset:2px}
+.session-intro .p-cta .primary:focus-visible{outline:2px solid var(--p-primary);outline-offset:2px}
+@media (hover:hover){.session-intro .p-cta .primary:not(:disabled):hover{filter:brightness(.94)}.session-intro .consent-choice:hover{background:color-mix(in srgb,var(--p-primary-container) 55%,transparent)}}
+
+/* Тёмная тема: затемнение под диалогом — тёмное, а не светлая дымка */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .quiz-screen .dialog{background:rgba(0,0,0,.6)}}
+:root[data-theme="dark"] .quiz-screen .dialog{background:rgba(0,0,0,.6)}

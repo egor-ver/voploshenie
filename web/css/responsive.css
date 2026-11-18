@@ -1,0 +1,128 @@
+/* Адаптив: телефон — на всю ширину, планшет — колонка по центру, компьютер — боковое меню и центрированный контент.
+   Подключается последним: перекрывает фиксированные 390px оболочки, не трогая сами экраны. */
+
+:root { --rail: 248px; --shell: 480px }
+
+/* Телефон: колонка тянется на всю ширину, но не шире 480px */
+#app { width: min(100%, var(--shell)) }
+nav.bottom-nav { width: min(100%, var(--shell)) }
+
+/* Планшет и узкое окно: колонка шире, меню остаётся снизу */
+@media (min-width: 600px) {
+  :root { --shell: 640px }
+  #app { box-shadow: none }
+}
+
+/* Компьютер. Слева боковое меню, всё остальное место занимает центрированный контент:
+   отступы слева и справа одинаковые, ширина экрана зависит от его содержимого (--shell). */
+@media (min-width: 1024px) {
+  :root { --shell: 720px; --nav-height: 0px }
+  body { background: var(--p-bg) }
+
+  #app, #app:has(>.path-home) {
+    width: auto; margin: 0 0 0 var(--rail);
+    padding: 48px clamp(32px, 5vw, 80px) 56px;
+  }
+  #app > section { width: 100%; max-width: var(--shell); margin-inline: auto }
+
+  /* Ширина контента по типу экрана */
+  #app:has(.catalog-screen, .games-hub) { --shell: 1120px }
+  #app:has(.screen-deadlines) { --shell: 900px }
+  #app:has(.path-home:not([data-start])) { --shell: 640px }
+  #app:has(.path-home[data-start], .profile-empty, .saved-empty) { --shell: 1040px }
+
+  /* Боковое меню вместо нижней панели */
+  nav.bottom-nav {
+    left: 0; right: auto; top: 0; bottom: 0; transform: none;
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 6px;
+    width: var(--rail); height: 100dvh; padding: 96px 16px 24px;
+    border-top: 0; border-right: 1px solid var(--p-divider);
+  }
+  nav.bottom-nav::before {
+    content: "воплощение"; position: absolute; top: 32px; left: 28px;
+    font: 800 20px/1 var(--p-font-head); letter-spacing: -.02em; color: var(--p-text);
+  }
+  nav.bottom-nav a {
+    flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px;
+    height: 52px; padding: 0 16px; font: 600 15px/1 var(--p-font-body);
+    border-radius: 0 16px 0 0;
+    transition: background-color .15s var(--m-ease, ease), color .15s var(--m-ease, ease);
+  }
+  nav.bottom-nav a:hover { background: color-mix(in srgb, var(--p-primary) 8%, transparent); color: var(--p-text) }
+  nav.bottom-nav a > span:last-child { overflow: visible }
+  nav.bottom-nav a[aria-current="page"] { background: var(--p-primary-container); color: var(--p-primary) }
+  nav.bottom-nav a[aria-current="page"]::before { top: 12px; bottom: 12px; left: 0; width: 3px; height: auto; transform: none }
+
+  /* Логотип живёт в боковом меню, в шапках экранов он лишний */
+  #app .brand { display: none }
+  .session-intro .intro-top { justify-content: flex-end }
+
+  /* Каталог, избранное, игры: сетка в две колонки, карточки одной высоты */
+  .catalog-list, .saved-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch }
+  .catalog-list .opportunity-item { display: flex; flex-direction: column }
+  .catalog-list .opportunity-item > .opportunity-card { flex: 1 }
+  .catalog-list .opportunity-item > .opportunity-card > .opportunity-main { height: 100% }
+  .catalog-list .catalog-group { grid-column: 1 / -1 }
+  .games-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch }
+  .games-list > :nth-child(3) { grid-column: 1 / -1 }
+  .catalog-search { max-width: none }
+
+  /* Кнопки: во всю ширину своей колонки и одной высоты */
+  .p-cta, .saved-cta, .wd-cta, .my-cta, .session-intro .p-cta, .path-actions,
+  .profile-cta, .path-link, .path-games, .saved-empty-action { width: 100%; max-width: none }
+  .path-actions .primary, .path-link, .profile-cta .primary, .saved-empty-action { height: 56px; min-height: 56px }
+  .path-link { display: flex; align-items: center; justify-content: space-between }
+  .deadline-list { margin-inline: 0 }
+
+  /* Стартовый экран: фото слева, заголовок, описание и кнопки справа */
+  .path-home[data-start] {
+    display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); column-gap: 64px;
+    grid-auto-rows: min-content; align-content: center; min-height: calc(100dvh - 104px); padding: 0 12px;
+  }
+  .path-home[data-start] > .path-photo { grid-column: 1; grid-row: 1 / span 8; width: 100%; height: min(560px, 72dvh); margin: 0; align-self: center }
+  .path-home[data-start] > :not(.path-photo):not(.brand):not(.path-vertical) { grid-column: 2 }
+  .path-home[data-start] > .path-hero { margin-top: 0; font-size: 64px; line-height: .95; align-self: end }
+  .path-home[data-start] > .path-subtitle { max-width: 460px; margin-top: 18px; font-size: 18px; line-height: 1.4 }
+  .path-home[data-start] > .path-actions { margin-top: 28px }
+  .path-home[data-start] > .path-link { margin-top: 12px }
+  .path-home[data-start] > .path-games { margin-top: 12px }
+  .path-home[data-start] > .path-vertical { right: auto; left: 408px; top: 40px }
+
+  /* Пустой профиль: слева текст, список и кнопка, справа иллюстрация */
+  .profile-empty { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: "title art" "sub art" "list art" "cta art"; grid-template-rows: repeat(4, auto); column-gap: 64px; align-content: center; min-height: calc(100dvh - 104px); margin-top: 0 }
+  .profile-empty > h1 { grid-area: title }
+  .profile-empty > p { grid-area: sub }
+  .profile-empty > .profile-preview { grid-area: list; margin-top: 28px }
+  .profile-empty > .profile-cta { grid-area: cta; align-self: start; margin: 32px 0 0 }
+  .profile-empty > .profile-art { grid-area: art; align-self: center; margin: 0 }
+  .profile-art svg { max-height: none; width: 100% }
+
+  /* Пустое избранное: та же композиция — текст и кнопка слева, картинка справа */
+  .saved-empty { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: "title art" "head art" "text art" "act art"; grid-template-rows: repeat(4, auto); column-gap: 64px; align-content: center; min-height: calc(100dvh - 104px); padding: 0 }
+  .saved-empty > .saved-title { grid-area: title }
+  .saved-empty > .saved-art { grid-area: art; align-self: center; width: 100%; max-width: 420px; justify-self: center; height: 280px; margin: 0; overflow: hidden }
+  .saved-empty > .saved-empty-title { grid-area: head; margin-top: 24px }
+  .saved-empty > .saved-empty-text { grid-area: text; max-width: 460px; margin: 12px 0 0 }
+  .saved-empty > .saved-empty-action { grid-area: act; align-self: start; margin: 32px 0 0 }
+
+  /* Пустые «Дедлайны»: картинка слева, текст и кнопка справа */
+  .screen-deadlines .deadline-empty { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 40px; align-items: center; padding: 32px; margin-top: 32px }
+  .screen-deadlines .deadline-empty__art { grid-row: 1 / span 3; margin: 0 }
+  .screen-deadlines .deadline-empty > :not(.deadline-empty__art) { grid-column: 2 }
+  .screen-deadlines .deadline-empty .p-btn { width: 100%; margin-top: 8px }
+  .screen-deadlines .deadline-empty .p-btn--primary { background: var(--p-accent); border-color: var(--p-accent); color: var(--p-on-accent) }
+  .screen-deadlines .deadline-content { max-width: none }
+}
+
+/* Очень широкие экраны: три колонки в каталоге */
+@media (min-width: 1600px) {
+  :root { --rail: 288px }
+  #app:has(.catalog-screen) { --shell: 1440px }
+  .catalog-list, .saved-list { grid-template-columns: repeat(3, minmax(0, 1fr)) }
+}
+
+/* Низкие окна компьютера: меню компактнее */
+@media (min-width: 1024px) and (max-height: 640px) {
+  nav.bottom-nav { padding-top: 72px }
+  nav.bottom-nav a { height: 44px }
+}
